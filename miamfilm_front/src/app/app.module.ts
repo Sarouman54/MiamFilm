@@ -9,6 +9,11 @@ import { CarouselComponent } from './component/carousel/carousel.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { SearchComponent } from './component/search/search.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { AuthModule } from './component/auth/auth.module';
+import { CommentModule } from './component/comment/comment.module';
+import { ProfileModule } from './component/profile/profile.module';
+import { RecipeModule } from './component/recipe/recipe.module';
+import { VideoModule } from './component/video/video.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,12 @@ import { PageNotFoundComponent } from './component/page-not-found/page-not-found
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthModule,
+    CommentModule,
+    ProfileModule,
+    RecipeModule,
+    VideoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

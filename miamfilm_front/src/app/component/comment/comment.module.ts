@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CommentFormComponent } from './comment-form/comment-form.component';
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { CommentItemComponent } from './comment-item/comment-item.component';
+import { CommentDeleteComponent } from './comment-delete/comment-delete.component';
 
 
 
@@ -10,7 +11,8 @@ import { CommentItemComponent } from './comment-item/comment-item.component';
   declarations: [
     CommentFormComponent,
     CommentListComponent,
-    CommentItemComponent
+    CommentItemComponent,
+    CommentDeleteComponent
   ],
   imports: [
     CommonModule

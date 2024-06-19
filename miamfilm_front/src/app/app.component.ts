@@ -6,10 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-<<<<<<< HEAD:miamfilm/src/app/app.component.ts
-  title = 'miamfilm';
-}
-=======
   title = 'miamfilm_front';
+  
 }
->>>>>>> release:miamfilm_front/src/app/app.component.ts

@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "back",
   "version": "1.0.0",
   "description": "",
@@ -17,20 +16,4 @@
     "sequelize": "^6.37.3"
   }
 }
-=======
-    "name": "back",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "Ambre Rouillon, Myriam Mbanzulu et Sarah Barrabé",
-    "license": "ISC",
-    "dependencies": {
-      "express": "^4.18.2",
-      "sequelize": "^6.37.0"
-    }
-  }
-  
->>>>>>> release
+

@@ -8,6 +8,7 @@ import { HeaderComponent } from './component/header/header.component';
 import { CarouselComponent } from './component/carousel/carousel.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { SearchComponent } from './component/search/search.component';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SearchComponent } from './component/search/search.component';
     HeaderComponent,
     CarouselComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

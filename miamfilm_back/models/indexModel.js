@@ -17,7 +17,7 @@ module.exports = {
   user: require('./userModel')(instance),
   role: require('./roleModel')(instance),
   recipe: require('./recipeModel')(instance),
-  review: require('./reviewModel')(instance),
+  video: require('./videoModel')(instance),
   comment: require('./commentModel')(instance),
   tag: require('./tagModel')(instance),
 }
@@ -37,20 +37,20 @@ instance.models.recipe.belongsTo(instance.models.user, {foreignKey: "idUser"})
 // Une recette peut avoir plusieurs tags
 instance.models.recipe.belongsToMany(instance.models.tag, {through: ""})
 
-// Un tag peut appartenir à plusieurs reviews
-// instance.models.tag.belongsToMany(instance.models.review, {foreignKey: "idReview"})
-// Une review peut avoir plusieurs tags 
-instance.models.review.belongsToMany(instance.models.tag, {through: ""})
+// Un tag peut appartenir à plusieurs videos
+// instance.models.tag.belongsToMany(instance.models.video, {foreignKey: "idVideo"})
+// Une video peut avoir plusieurs tags 
+instance.models.video.belongsToMany(instance.models.tag, {through: ""})
 
-// Un utilisateur (auteur) peut avoir plusieurs reviews
-// instance.models.user.belongsToMany(instance.models.review, {foreignKey: "idReview"})
-// Une review peut avoir un seul et unique utilisateur (auteur)
-instance.models.review.belongsTo(instance.models.user, {foreignKey: "idUser"})
+// Un utilisateur (auteur) peut avoir plusieurs video
+// instance.models.user.belongsToMany(instance.models.video, {foreignKey: "idVideo"})
+// Une video peut avoir un seul et unique utilisateur (auteur)
+instance.models.video.belongsTo(instance.models.user, {foreignKey: "idUser"})
 
-// Une review peut avoir plusieurs commentaires
-// instance.models.review.belongsToMany(instance.models.comment, {foreignKey: "idComment"})
-// Un commentaire ne peut appartenir qu'à une seule et unique review
-instance.models.comment.belongsTo(instance.models.review, {foreignKey: "idReview"})
+// Une video peut avoir plusieurs commentaires
+// instance.models.video.belongsToMany(instance.models.comment, {foreignKey: "idComment"})
+// Un commentaire ne peut appartenir qu'à une seule et unique video
+instance.models.comment.belongsTo(instance.models.video, {foreignKey: "idVideo"})
 
 // Un utilisateur (auteur) peut poster plusieurs commentaires
 // instance.models.user.belongsToMany(instance.models.comment, {foreignKey: "idComment"})

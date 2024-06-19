@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+<<<<<<< HEAD:miamfilm/src/app/app.component.ts
   title = 'miamfilm';
 }
+=======
+  title = 'miamfilm_front';
+}
+>>>>>>> release:miamfilm_front/src/app/app.component.ts

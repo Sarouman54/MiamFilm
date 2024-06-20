@@ -4,28 +4,110 @@
       <!-- Logo -->
       <div class="flex w-60 min-w-min">
         <div class="mx-auto my-auto">
-          <h1 class="text-[#671321] text-4xl mx-auto font-bold">MiamFilm</h1>
+          <a routerLink="" class="text-[#671321] cursor-pointer text-4xl mx-auto font-bold">MiamFilm</a>
         </div>
       </div>
   
       <!-- Navigation -->
       <div class="ml-32 flex space-x-20">
         <div class="my-auto">
-
-           
+          
+          <a routerLink="" class="text-black cursor-pointer text-2xl font-roboto rounded-md px-2 py-2 hover:bg-[#E0E3DD] hover:bg-opacity-80" >
+            Accueil
+          </a>
 
         </div>
         <div class="my-auto">
-          <h1 class="text-black text-2xl font-roboto">Films</h1>
+
+          <button id="dropdownHoverButton1" data-dropdown-toggle="dropdownHover1" data-dropdown-trigger="hover" 
+          class="text-black text-2xl font-roboto rounded-md px-2 py-2 hover:bg-[#E0E3DD] hover:bg-opacity-80" type="button">
+            Films
+          </button>
+
+          <div id="dropdownHover1" class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-[#F5C000]">
+            <ul class="py-2 text-sm  " aria-labelledby="dropdownHoverButton1">
+              <li>
+                <a href="#" class="block px-4 py-2 text-black font-roboto hover:bg-[#FFD438] hover:text-black ">Action</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 text-black font-roboto hover:bg-[#FFD438] hover:text-black ">Comédie</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 text-black font-roboto hover:bg-[#FFD438] hover:text-black ">Horreur</a>
+              </li>
+            </ul>
+          </div>
+
         </div>
         <div class="my-auto">
-          <h1 class="text-black text-2xl font-roboto">Séries</h1>
+
+          <button id="dropdownHoverButton2" data-dropdown-toggle="dropdownHover2" data-dropdown-trigger="hover" 
+          class="text-black text-2xl font-roboto rounded-md px-2 py-2 hover:bg-[#E0E3DD] hover:bg-opacity-80" type="button">
+            Séries
+          </button>
+
+          <div id="dropdownHover2" class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-[#671321]">
+            <ul class="py-2 text-sm  " aria-labelledby="dropdownHoverButton2">
+              <li>
+                <a href="#" class="block px-4 py-2 text-white font-roboto hover:bg-[#450D16]  ">Policière</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 text-white font-roboto hover:bg-[#450D16] ">Comédie</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 text-white font-roboto hover:bg-[#450D16]  ">Romance</a>
+              </li>
+            </ul>
+          </div>
+
+          
+          
         </div>
         <div class="my-auto mr-16">
-          <h1 class="text-black text-2xl font-roboto">Animes/Mangas</h1>
+
+          <button id="dropdownHoverButton3" data-dropdown-toggle="dropdownHover3" data-dropdown-trigger="hover" 
+          class="text-black text-2xl font-roboto rounded-md px-2 py-2 hover:bg-[#E0E3DD] hover:bg-opacity-80" type="button">
+            Animes/Mangas
+          </button>
+
+          <div id="dropdownHover3" class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-[#671321]">
+            <ul class="py-2 text-sm  " aria-labelledby="dropdownHoverButton3">
+              <li>
+                <a href="#" class="block px-4 py-2 text-white font-roboto hover:bg-[#FFD438]  hover:text-black">Policière</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 text-white font-roboto hover:bg-[#FFD438] hover:text-black">Comédie</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 text-white font-roboto hover:bg-[#FFD438]  hover:text-black">Romance</a>
+              </li>
+            </ul>
+          </div>
+          
+          
         </div>
         <div class="my-auto mr-16">
-            <h1 class="text-black text-2xl font-roboto">Recettes</h1>
+
+          <button id="dropdownHoverButton4" data-dropdown-toggle="dropdownHover4" data-dropdown-trigger="hover" 
+          class="text-black text-2xl font-roboto rounded-md px-2 py-2 hover:bg-[#E0E3DD] hover:bg-opacity-80" type="button">
+            Recettes
+          </button>
+
+          <div id="dropdownHover4" class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-[#F5C000]">
+            <ul class="py-2 text-sm  " aria-labelledby="dropdownHoverButton3">
+              <li>
+                <a href="#" class="block px-4 py-2 text-black font-roboto hover:bg-[#671321] hover:text-white ">Policière</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 text-black font-roboto hover:bg-[#671321] hover:text-white">Comédie</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 text-black font-roboto hover:bg-[#671321]  hover:text-white">Romance</a>
+              </li>
+            </ul>
+          </div>
+
+
           </div>
       </div>
   
@@ -42,35 +124,11 @@
         </div>-->
         <div class="flex mr-36 my-auto">
             <a routerLink="/login"
-            class="text-black hover:text-[#671321] hover:bg-[#A9B2AE] hover:bg-opacity-90 rounded-md px-2 py-2 text-xl font-roboto">Connexion</a>
+            class="text-black hover:bg-[#E0E3DD] hover:bg-opacity-80 rounded-md px-2 py-2 text-xl font-roboto">Connexion</a>
             <a routerLink="/register"
-            class="text-black hover:text-[#671321] hover:bg-[#A9B2AE] hover:bg-opacity-90 rounded-md px-2 py-2 text-xl font-roboto">Inscription</a>
+            class="text-black hover:bg-[#E0E3DD] hover:bg-opacity-80 rounded-md px-2 py-2 text-xl font-roboto">Inscription</a>
           </div>
       </div>
       
     </div>
   </div>
-
- 
-<button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Dropdown divider <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-    </svg>
-    </button>
-    
-    <!-- Dropdown menu -->
-    <div id="dropdownDivider" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDividerButton">
-          <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-          </li>
-          <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-          </li>
-          <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-          </li>
-        </ul>
-        <div class="py-2">
-          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Separated link</a>
-        </div>
-    </div>

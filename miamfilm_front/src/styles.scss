@@ -1,4 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.scss */
+@font-face {
+    font-family: 'Roboto';
+    src: url('/assets/fonts/roboto/Roboto-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('/assets/fonts/roboto/Roboto-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Next-Bro';
+    src: url('/assets/fonts/nextbro/Next Bro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color: #FFFCF9;
+}

@@ -7,21 +7,11 @@ import { initFlowbite } from 'flowbite';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-<<<<<<< Updated upstream
-export class AppComponent {
-<<<<<<< HEAD:miamfilm/src/app/app.component.ts
-  title = 'miamfilm';
-=======
+
 export class AppComponent implements OnInit {
   title = 'miamfilm_front';
 
   ngOnInit(): void {
     initFlowbite();
-  }
-  
->>>>>>> Stashed changes
+  }  
 }
-=======
-  title = 'miamfilm_front';
-}
->>>>>>> release:miamfilm_front/src/app/app.component.ts

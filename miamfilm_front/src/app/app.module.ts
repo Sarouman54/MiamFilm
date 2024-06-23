@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
@@ -18,15 +18,16 @@ import { VideoModule } from './component/video/video.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     HeaderComponent,
-    CarouselComponent,
     FooterComponent,
-    SearchComponent,
-    PageNotFoundComponent
+    HomeComponent,
+    CarouselComponent,
+    PageNotFoundComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,    
     AppRoutingModule,
     AuthModule,
     CommentModule,

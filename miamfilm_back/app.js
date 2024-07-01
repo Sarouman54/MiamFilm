@@ -1,13 +1,15 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+
+const videoRouter = require('./routers/videoRouter');
+
 require('dotenv').config()
 
 app.use(cors())
 app.use(express.json())
 
-// const infosJeuRouter = require('./routers/infosJeu')
-// app.use('/infos', infosJeuRouter)
+app.use('/video', videoRouter);
 
 app.use((error, req, res, next) => {
     res.status(error.status || 500)

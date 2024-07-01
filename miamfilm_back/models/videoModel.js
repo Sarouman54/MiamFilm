@@ -54,6 +54,9 @@ module.exports = (instance) => {
                 type: DataTypes.DATE,
                 allowNull: false,
             }
+        },
+        {
+          timestamps: false,
         }
     )
 }

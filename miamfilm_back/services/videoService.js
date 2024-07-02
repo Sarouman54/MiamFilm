@@ -24,53 +24,57 @@ exports.addVideo = async (title) => {
 
     var videoItems = await api.apiGetVideoByTitle('&query='+title+'&language=fr-FR');
     var idVideo = videoItems.results[0].id;
-    
+
+    var officialTitle = videoItems.results[0].title; 
     var released = videoItems.results[0].release_date;
 
     var director = null;
     var creditItems = await api.apiGetCreditByVideo(idVideo, '&language=fr-FR');
     creditItems.crew.forEach(item => {
         if(item.hasOwnProperty("job") && item.job == "Director") {
-            director = item;
+            director = item.name;
             return item;
         }
     });
-    var actors = [];
+
+    var actors = "";
+    var count = 0;
     creditItems.cast.forEach(item => {
-        if(actors.length >= 10) {
+        if(count >= 10) {
             return;
         }
         if(item.known_for_department == "Acting"){
-            actors.push(item.name);
+            count++;
+            actors = actors + item.name + ',';
         }
     })
 
-    var genres = [];
+    var genres = "";
     var detailItems = await api.apiGetDetailByVideo(idVideo, "&language=fr-FR");
     detailItems.genres.forEach(item => {
-        genres.push(item.name);
+        genres = genres + item.name + ',';
     });
 
-    var runtime = detailItems.runtime; // À convertir en Time
+    var runtime = detailItems.runtime;
     var poster = videoItems.results[0].poster_path;
     var boxOffice = detailItems.revenue; // En Millions
-    var today = new Date();
-    // try {
-    //     await video.create({
-    //         title: video.results[0].title,
-    //         released: video.results[0].release_date,
-    //         director: ,
-    //         actors: ,
-    //         genre: ,
-    //         type: ,
-    //         runtime: ,
-    //         poster: ,
-    //         box_office: ,
-    //         created_at: ,
-    //         updated_at: ,
-    //     })
-    //     return video.results[0].title;
-    // } catch (error) {
-    //     throw new Error('Error to add video');
-    // }
+    var today = new Date(); // Utiliser toLocaleString('fr-FR') pou afficher au fuseau horaire français
+    try {
+        return await video.create({
+            title: officialTitle,
+            released: released,
+            director: director,
+            actors: actors,
+            genre: genres,
+            type: "Film",
+            runtime: runtime,
+            poster: poster,
+            box_office: boxOffice,
+            created_at: today,
+            updated_at: today,
+        })
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error to add video');
+    }
 }

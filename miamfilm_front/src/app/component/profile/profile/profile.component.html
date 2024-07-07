@@ -1,1 +1,25 @@
-<p>profile works!</p>
+<!-- profile.component.html -->
+<div class="profile-container">
+    <div class="relative rounded-3xl bg-[#FFD438] min-w-min forme1 z-10 w-1/4 h-3/4 mt-16 mx-auto p-3">
+        <img class="mt-10 mx-auto rounded-full w-64 bg-[#671321]" src="../../assets/img/user-icon.png"
+            alt="Une image de profil de bas pas ouf ouf quand même" />
+        <div class="flex justify-between mt-10 items-start">
+            <h1 class="text-black text-left  ml-10 text-3xl font-roboto">Namiou</h1>
+            <a routerLink="/profile/user-update" class="hover:bg-[#A9B2AE] rounded-md  mr-10">
+                <img class="w-7 top-40" src="../../assets/img/change.png" alt="Un petit crayon" />
+            </a>
+        </div>
+        <h1 class="text-black text-left mt-10 ml-10 mr-20 text-3xl font-roboto">Namiougmail.com</h1>
+        <div class="flex justify-between items-start">
+            <h1 class=" text-black text-left mt-10 ml-10 text-3xl font-roboto">******</h1>
+            <a routerLink="/profile/user-password-update" class="hover:bg-[#A9B2AE] rounded-md mt-10 mr-10">
+                <img class="w-7 top-40" src="../../assets/img/change.png" alt="Un petit crayon" />
+            </a>
+        </div>
+        <div class="flex mt-3">
+            <a routerLink="/profile/user-delete" class="hover:bg-[#671321] rounded-md ml-auto">
+                <img class="w-7" src=" ../../assets/img/bin.png" alt="Une belle petite poubelle" />
+            </a>
+        </div>
+    </div>
+</div>

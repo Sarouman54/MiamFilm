@@ -7,7 +7,7 @@ import { UserDeleteComponent } from './user-delete/user-delete.component';
 import { UserPasswordUpdateComponent } from './user-password-update/user-password-update.component';
 
 const routes: Routes = [
-    { path: 'profile', component: ProfileComponent },
+    { path: '', component: ProfileComponent },
     { path: 'user-update', component: UserUpdateComponent },
     { path: 'user-delete', component: UserDeleteComponent },
     { path: 'user-password-update', component: UserPasswordUpdateComponent }

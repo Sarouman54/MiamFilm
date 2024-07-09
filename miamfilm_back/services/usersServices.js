@@ -1,17 +1,17 @@
-import { user } from "../models/indexModel"
+const db = require("../models/indexModel")
 
-export async function getUsers() {
-  return await user.findAll({
+exports.getUsers = async (req, res, next) => {
+  return await db.user.findAll({
     attributes: { exclude: ["hashedPassword"] },
   })
 }
 
-export async function addUser(last_name, first_name, username, email, hashedPassword) {
-  return await user.create({last_name: last_name, first_name: first_name, username: username, email: email, hashedPassword: hashedPassword,})
+exports.addUser = async (last_name, first_name, username, email, hashedPassword, idRole) => {
+  return await db.user.create({last_name: last_name, first_name: first_name, username: username, email: email, hashedPassword: hashedPassword, idRole: idRole})
 }
 
-export async function getUserById(id) {
-  return await user.findOne({
+exports.getUserById = async (id) => {
+  return await db.user.findOne({
     where: {
       id,
     },
@@ -19,9 +19,9 @@ export async function getUserById(id) {
   })
 }
 
-export async function putUser(id, username, hashedPassword, email) {
-  return await user.update(
-    { username: username, hashedPassword: hashedPassword, email: email },
+exports.putUser = async (id, last_name, first_name, username, email, hashedPassword, idRole) => {
+  return await db.user.update(
+    { last_name: last_name, first_name: first_name, email: email, username: username, hashedPassword: hashedPassword, idRol: idRole },
     {
       where: {
         id,
@@ -30,8 +30,8 @@ export async function putUser(id, username, hashedPassword, email) {
   )
 }
 
-export async function deleteUserById(id) {
-  return await user.destroy({
+exports.deleteUserById = async (id) => {
+  return await db.user.destroy({
     where: {
       id,
     },

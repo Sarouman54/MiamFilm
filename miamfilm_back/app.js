@@ -14,4 +14,10 @@ app.use((error, req, res, next) => {
         .json({success: false, message: error.message, status: error.status})
 })
 
+const registerRouter = require('./routers/registerRouter')
+app.use('/register', registerRouter)
+
+const usersRouter = require('./routers/usersRouter')
+app.use('/users', usersRouter)
+
 module.exports = app

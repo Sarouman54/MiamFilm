@@ -6,4 +6,5 @@ export class UserModel {
     email?: string;
     created_at?: Date;
     updated_at?: Date;
+    idRole?: string;
 }

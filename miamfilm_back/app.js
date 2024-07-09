@@ -14,4 +14,7 @@ app.use((error, req, res, next) => {
         .json({success: false, message: error.message, status: error.status})
 })
 
+const usersRouter = require('./routers/usersRouter')
+app.use('/users', usersRouter)
+
 module.exports = app

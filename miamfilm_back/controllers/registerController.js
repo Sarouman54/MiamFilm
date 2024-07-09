@@ -12,7 +12,8 @@ exports.signUp = async (req, res) => {
   const first_name    = req.body.first_name 
   const username    = req.body.username
   const email   = req.body.email
-  const password    = req.body.password
+  const password    = req.body.hashedPassword
+  const idRole  = req.body.idRole
 
   if( !last_name || !first_name || !username || !email || !password) return res.status(400).json({
       success: false,

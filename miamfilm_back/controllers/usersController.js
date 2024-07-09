@@ -14,7 +14,7 @@ exports.getUsers = async (req, res, next) => {
 
 
 exports.addUser = async (req, res, next) => {
-   if(!req.body.hashedPassword || !req.body.last_name || !req.body.first_name || !req.body.username || !req.body.email){
+   if(!req.body.last_name || !req.body.first_name || !req.body.username || !req.body.email || !req.body.hashedPassword){
       res.status(400).json({
          success: false,
          message: "Pseudo, email, password are required"

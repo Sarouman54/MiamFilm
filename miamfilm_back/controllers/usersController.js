@@ -1,7 +1,7 @@
 const usersService = require('../services/usersServices')
 const createError = require('http-errors')
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt')
+const bcrypt    = require('bcrypt')
 
 exports.getUsers = async (req, res, next) => {
    const users = await usersService.getUsers()
@@ -14,7 +14,7 @@ exports.getUsers = async (req, res, next) => {
 
 
 exports.addUser = async (req, res, next) => {
-   if(!req.body.hashedPassword || !req.body.username || !req.body.email){
+   if(!req.body.hashedPassword || !req.body.last_name || !req.body.first_name || !req.body.username || !req.body.email){
       res.status(400).json({
          success: false,
          message: "Pseudo, email, password are required"
@@ -24,7 +24,7 @@ exports.addUser = async (req, res, next) => {
 
    bcrypt.hash(req.body.hashedPassword, 10, async function(err, bcryptPassword){
       if(bcryptPassword){
-         const userCreated = await usersService.addUser(req.body.username, bcryptPassword, req.body.email)
+         const userCreated = await usersService.addUser(req.body.last_name, req.body.first_name, req.body.email, req.body.username, bcryptPassword, req.body.idRole)
          if (userCreated) {
             res.status(201).json({id: userCreated.id})
          } else {
@@ -47,7 +47,7 @@ exports.putUser = (req, res, next) => {
    const userConnected = jwt.verify(req.headers.authorization.split(' ')[1], process.env.JWT_SIGN_SECRET)
    bcrypt.hash(req.body.hashedPassword, 10, async function(err, bcryptPassword){
       if(bcryptPassword){
-         const userUpdated = usersService.putUser(userConnected.userId, req.body.username, req.body.email, req.body.hashedPassword)
+         const userUpdated = usersService.putUser(userConnected.userId, req.body.last_name, req.body.first_name, req.body.email, req.body.username, bcryptPassword, req.body.idRole)
          if (userUpdated) {
             res.status(200).json({
                success: true,

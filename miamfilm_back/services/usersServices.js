@@ -6,8 +6,8 @@ exports.getUsers = async (req, res, next) => {
   })
 }
 
-exports.addUser = async (last_name, first_name, username, email, hashedPassword) => {
-  return await db.user.create({last_name: last_name, first_name: first_name, username: username, email: email, hashedPassword: hashedPassword,})
+exports.addUser = async (last_name, first_name, username, email, hashedPassword, idRole) => {
+  return await db.user.create({last_name: last_name, first_name: first_name, username: username, email: email, hashedPassword: hashedPassword, idRole: idRole})
 }
 
 exports.getUserById = async (id) => {
@@ -19,9 +19,9 @@ exports.getUserById = async (id) => {
   })
 }
 
-exports.putUser = async (id, username, hashedPassword, email) => {
+exports.putUser = async (id, last_name, first_name, username, email, hashedPassword, idRole) => {
   return await db.user.update(
-    { username: username, hashedPassword: hashedPassword, email: email },
+    { last_name: last_name, first_name: first_name, email: email, username: username, hashedPassword: hashedPassword, idRol: idRole },
     {
       where: {
         id,

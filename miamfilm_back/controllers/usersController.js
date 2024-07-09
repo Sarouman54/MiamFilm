@@ -1,7 +1,7 @@
 const usersService = require('../services/usersServices')
 const createError = require('http-errors')
 const jwt = require('jsonwebtoken')
-const bcrypt    = require('bcrypt')
+const bcrypt = require('bcrypt')
 
 exports.getUsers = async (req, res, next) => {
    const users = await usersService.getUsers()

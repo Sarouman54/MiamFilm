@@ -63,12 +63,25 @@ exports.signUp = async (req, res) => {
         })
       }
     },
-  ])
+  ],
+  async function(user, bcryptPassword) {
+    if(db.user.create({last_name: last_name, first_name: first_name, email: email, username: username, hashedPassword: bcryptPassword, idRole: idRole})) {
+        return res.status(201).json({
+          success: true,
+          message: 'User created !'
+        })
+      } else {
+        return res.status(500).json({
+          success: false,
+          error: 'An error occured during user\'s creation'
+        })
+      }
+  })
 }
 
 exports.signIn = async (req, res) => {
   const email   = req.body.email
-  const password= req.body.password
+  const password= req.body.hashedPassword
 
   if(!email || !password) return res.status(400).json({
     success: false,

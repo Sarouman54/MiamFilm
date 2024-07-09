@@ -1,10 +1,10 @@
-import { getUsers, addUser, getUserById, putUser, deleteUserById } from '../services/usersService'
-import createError from 'http-errors'
-import { verify } from 'jsonwebtoken'
-import { hash } from 'bcrypt'
+const usersService = require('../services/usersServices')
+const createError = require('http-errors')
+const jwt = require('jsonwebtoken')
+const bcrypt    = require('bcrypt')
 
-export async function getUsers(req, res, next) {
-   const users = await getUsers()
+exports.getUsers = async (req, res, next) => {
+   const users = await usersService.getUsers()
    if (users) {
       res.json({ data: users })
    } else {
@@ -12,18 +12,19 @@ export async function getUsers(req, res, next) {
    }
 }
 
-export async function addUser(req, res, next) {
+
+exports.addUser = async (req, res, next) => {
    if(!req.body.hashedPassword || !req.body.username || !req.body.email){
       res.status(400).json({
          success: false,
-         message: "Username, email and password and role are required"
+         message: "Pseudo, email, password are required"
       }).send()
       return
    }
 
-   hash(req.body.hashedPassword, 10, async function(err, bcryptPassword){
+   bcrypt.hash(req.body.hashedPassword, 10, async function(err, bcryptPassword){
       if(bcryptPassword){
-         const userCreated = await addUser(req.body.username, bcryptPassword, req.body.email)
+         const userCreated = await usersService.addUser(req.body.username, bcryptPassword, req.body.email)
          if (userCreated) {
             res.status(201).json({id: userCreated.id})
          } else {
@@ -33,8 +34,8 @@ export async function addUser(req, res, next) {
     })
 }
 
-export async function getUserById(req, res, next) {
-   const user = await getUserById(req.params.id)
+exports.getUserById = async (req, res, next) => {
+   const user = await usersService.getUserById(req.params.id)
    if (user) {
       res.json({ data: user })
    } else {
@@ -42,11 +43,11 @@ export async function getUserById(req, res, next) {
    }
 }
 
-export function putUser(req, res, next) {
-   const userConnected = verify(req.headers.authorization.split(' ')[1], process.env.JWT_SIGN_SECRET)
-   hash(req.body.password, 10, async function(err, bcryptPassword){
+exports.putUser = (req, res, next) => {
+   const userConnected = jwt.verify(req.headers.authorization.split(' ')[1], process.env.JWT_SIGN_SECRET)
+   bcrypt.hash(req.body.hashedPassword, 10, async function(err, bcryptPassword){
       if(bcryptPassword){
-         const userUpdated = putUser(userConnected.userId, req.body.username, req.body.hashedPassword, req.body.email)
+         const userUpdated = usersService.putUser(userConnected.userId, req.body.username, req.body.email, req.body.hashedPassword)
          if (userUpdated) {
             res.status(200).json({
                success: true,
@@ -59,10 +60,10 @@ export function putUser(req, res, next) {
     })
 }
 
-export function deleteUserById(req, res, next) {
+exports.deleteUserById = (req, res, next) => {
    try {
-      const userConnected = verify(req.headers.authorization.split(' ')[1], process.env.JWT_SIGN_SECRET)
-      deleteUserById(userConnected.userId)
+      const userConnected = jwt.verify(req.headers.authorization.split(' ')[1], process.env.JWT_SIGN_SECRET)
+      usersService.deleteUserById(userConnected.userId)
       res.status(204).json({
          success: true,
          message: "User deleted"

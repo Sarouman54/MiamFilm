@@ -1,16 +1,16 @@
-import { user } from "../models/indexModel"
+const user = require("../models/indexModel")
 
-export async function getUsers() {
+exports.getUsers = async (req, res, next) => {
   return await user.findAll({
     attributes: { exclude: ["hashedPassword"] },
   })
 }
 
-export async function addUser(last_name, first_name, username, email, hashedPassword) {
+exports.addUser = async (last_name, first_name, username, email, hashedPassword) => {
   return await user.create({last_name: last_name, first_name: first_name, username: username, email: email, hashedPassword: hashedPassword,})
 }
 
-export async function getUserById(id) {
+exports.getUserById = async (id) => {
   return await user.findOne({
     where: {
       id,
@@ -19,7 +19,7 @@ export async function getUserById(id) {
   })
 }
 
-export async function putUser(id, username, hashedPassword, email) {
+exports.putUser = async (id, username, hashedPassword, email) => {
   return await user.update(
     { username: username, hashedPassword: hashedPassword, email: email },
     {
@@ -30,7 +30,7 @@ export async function putUser(id, username, hashedPassword, email) {
   )
 }
 
-export async function deleteUserById(id) {
+exports.deleteUserById = async (id) => {
   return await user.destroy({
     where: {
       id,

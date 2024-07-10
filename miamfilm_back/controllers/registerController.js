@@ -105,13 +105,14 @@ exports.signIn = async (req, res) => {
     },
     function(user, callback) {
       if(user){
+        console.log(password, user.hashedPassword)
         bcrypt.compare(password, user.hashedPassword, function(errBcrypt, resBcrypt) {
           callback(null, user, resBcrypt)
         })
       } else {
         return res.status(404).json({
           success: false,
-          error: 'Email or password invalid'
+          error: 'password invalid'
         })
       }
     },

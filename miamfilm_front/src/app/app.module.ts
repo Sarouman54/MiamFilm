@@ -17,6 +17,8 @@ import { VideoModule } from './component/video/video.module';
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { RatingModule } from 'primeng/rating';
     VideoModule,
     ButtonModule,
     CarouselModule,
-    RatingModule
+    RatingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

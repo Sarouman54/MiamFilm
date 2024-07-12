@@ -16,6 +16,8 @@ import { RecipeModule } from './component/recipe/recipe.module';
 import { VideoModule } from './component/video/video.module';
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
+import { RatingModule } from 'primeng/rating';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { ButtonModule } from 'primeng/button';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,    
+    BrowserAnimationsModule,
     AppRoutingModule,
     AuthModule,
     CommentModule,
@@ -37,7 +39,8 @@ import { ButtonModule } from 'primeng/button';
     RecipeModule,
     VideoModule,
     ButtonModule,
-    CarouselModule
+    CarouselModule,
+    RatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

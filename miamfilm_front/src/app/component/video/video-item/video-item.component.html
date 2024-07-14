@@ -2,15 +2,16 @@
     <div class="flex space-x-10 my-16 px-12">
         <div class="w-1/4 relative">
             <div id="note"
-                class="bg-[#A9B2AE] rounded-full h-16 w-16 flex justify-center items-center absolute -top-4 -right-4">
-                <p class="text-black font-roboto text-center text-2xl">9</p>
+                class="bg-[#A9B2AE] rounded-full h-16 w-16 max-xl:h-12 max-xl:w-12 flex justify-center items-center absolute -top-4 -right-4">
+                <p class="text-black font-roboto text-center text-2xl max-xl:text-xl">9</p>
             </div>
             <img src="../../assets/img/frozen2.jpg" alt="Image" class="w-full" />
-            <h1 class="font-roboto text-3xl text-center mt-4">Frozen</h1>
+            <h1 class="font-roboto text-3xl max-xl:text-2xl text-center mt-4">Frozen</h1>
         </div>
         <div class="w-10/12">
-            <h1 class="font-roboto text-3xl">Titre de la critique</h1>
-            <p class="mt-5 font-roboto text-1xl">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta
+            <h1 class="font-roboto text-3xl max-xl:text-2xl">Titre de la critique</h1>
+            <p class="mt-5 font-roboto text-1xl max-xl:text-base">Lorem ipsum dolor, sit amet consectetur adipisicing
+                elit. Dicta
                 mollitia commodi
                 ullam. Magnam blanditiis doloremque accusamus aliquam aperiam, repudiandae officia hic nesciunt eveniet
                 praesentium itaque laudantium tempora, nobis repellendus. Sint.
@@ -84,17 +85,17 @@
         </div>
         <div class="flex flex-col items-center mx-auto w-1/4">
             <img src="../../assets/img/user-icon.png" alt="Image" class="w-5/12" />
-            <p class="font-roboto text-1xl">Auteur :</p>
-            <p class="font-roboto text-2xl">Namiou</p>
+            <p class="font-roboto text-1xl max-xl:text-lg">Auteur :</p>
+            <p class="font-roboto text-2xl max-xl:text-1xl">Namiou</p>
             <div class="flex mt-2">
-                <p class="mr-1 font-roboto text-1xl">Date :</p>
-                <p class="font-roboto text-1xl">11/02/2002</p>
+                <p class="mr-1 font-roboto text-1xl max-xl:text-lg">Date :</p>
+                <p class="font-roboto text-1xl max-xl:text-lg">11/02/2002</p>
             </div>
         </div>
     </div>
     <div>
         <div class="w-3/4 mx-auto">
-            <h1 class="text-3xl font-roboto mb-4">Recettes du film :</h1>
+            <h1 class="text-3xl max-xl:text-2xl font-roboto mb-4">Recettes du film :</h1>
             <p-carousel [value]="images" [numVisible]="2" [numScroll]="1" [circular]="true">
                 <ng-template let-image pTemplate="item">
                     <div class="py-2 pr-2 pl-4">
@@ -109,31 +110,32 @@
                                     </div>
                                     <div>
                                         <div class="">
-                                            <h2 class="font-roboto text-left text-2xl">Dessert</h2>
+                                            <h2 class="font-roboto text-left text-2xl max-xl:text-xl">Dessert</h2>
                                         </div>
                                         <div>
                                             <p-rating [(ngModel)]="value" stars="5">
                                                 <ng-template pTemplate="onicon">
-                                                    <img src="../../assets/img/ratingcolor.png" width="40rem"
-                                                        height="40rem" />
+                                                    <img src="../../assets/img/ratingcolor.png"
+                                                        class="w-10 h-10 max-xl:w-9 max-xl:h-8" />
                                                 </ng-template>
                                                 <ng-template pTemplate="officon">
-                                                    <img src="../../assets/img/rating.png" width="40px" height="40px" />
+                                                    <img src="../../assets/img/rating.png"
+                                                        class="w-10 h-10 max-xl:w-9 max-xl:h-8" />
                                                 </ng-template>
                                             </p-rating>
                                         </div>
                                         <div class="flex mt-4">
-                                            <img src="../../assets/img/time.png" width="25rem" height="25rem"
-                                                class="" />
+                                            <img src="../../assets/img/time.png"
+                                                class="w-7 h-7 max-xl:w-5 max-xl:h-5" />
                                             <div class="flex">
-                                                <p class="font-roboto text-lg ml-2">45</p>
-                                                <p class="font-roboto text-lg">mins</p>
+                                                <p class="font-roboto text-lg max-xl:text-base ml-2 mr-1">45</p>
+                                                <p class="font-roboto text-lg max-xl:text-base">mins</p>
                                             </div>
                                         </div>
                                         <div class="flex mt-4">
-                                            <img src="../../assets/img/toque.png" width="25rem" height="25rem"
-                                                class="" />
-                                            <p class="font-roboto text-lg ml-2">Moyen</p>
+                                            <img src="../../assets/img/toque.png"
+                                                class="w-7 h-7 max-xl:w-5 max-xl:h-5" />
+                                            <p class="font-roboto text-lg max-xl:text-base ml-2">Moyen</p>
                                         </div>
                                     </div>
                                 </div>

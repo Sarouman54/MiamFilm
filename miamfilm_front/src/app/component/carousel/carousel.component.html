@@ -1,6 +1,7 @@
 <div class="w-3/4 mx-auto my-16">
     <h1 class="text-3xl font-roboto mb-4">Films</h1>
-    <p-carousel [value]="images" [numVisible]="5" [numScroll]="1" [circular]="true">
+    <p-carousel [value]="images" [numVisible]="5" [numScroll]="1" [circular]="true"
+        [responsiveOptions]="responsiveOptions">
         <ng-template let-image pTemplate="item">
             <div
                 class="image-item w-64 space-x-1 px-2 pt-7 pb-2 relative transform transition-transform duration-300 hover:scale-105 ">

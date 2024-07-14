@@ -6,8 +6,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements OnInit {
-  images!: string[];
-  notes!: string[];
+  images: string[] = [];
+  notes: string = '9';
+
+  responsiveOptions: any[] = [
+    {
+      breakpoint: '1280px',
+      numVisible: 3,
+      numScroll: 1
+    },
+    {
+      breakpoint: '1024px',
+      numVisible: 2,
+      numScroll: 1
+    },
+    {
+      breakpoint: '768px',
+      numVisible: 2,
+      numScroll: 1
+    },
+    {
+      breakpoint: '560px',
+      numVisible: 1,
+      numScroll: 1
+    }
+  ];
 
   ngOnInit() {
     this.images = [
@@ -29,9 +52,6 @@ export class CarouselComponent implements OnInit {
       'assets/img/ariel.jpg',
       'assets/img/insideout2.jpg',
       'assets/img/raiponse.jpg'
-    ];
-    this.notes = [
-      '9'
     ];
   }
 }

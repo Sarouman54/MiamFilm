@@ -1,1 +1,18 @@
-<p>search works!</p>
+<form class="w-96 max-xl:w-72 mx-auto mt-10 mr-72 max-xl:mr-60">
+    <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Recherche</label>
+    <div class="relative border border-gray-200 rounded-sm  bg-[#FFFCF9] focus:ring-[#671321] focus:border-[#671321]">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-[#031826]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+            </svg>
+        </div>
+        <input type="search" id="default-search"
+            class="block w-full p-4 bg-[#FFFCF9] ps-10 text-sm text-black  font-roboto "
+            placeholder="Films, recettes, ..." required />
+        <button type="submit"
+            class="text-white font-roboto absolute end-2.5 bottom-2 max-xl:bottom-2.5 bg-[#671321] hover:bg-[#FFD438] hover:text-[#671321] focus:ring-4 focus:outline-none focus:ring-[#671321] rounded-lg text-sm max-xl:text-xs px-4 py-2 ">
+            Rechercher</button>
+    </div>
+</form>

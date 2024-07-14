@@ -8,11 +8,11 @@ import { AuthService } from '../../../services/auth.service';
   styleUrls: ['./sign-out.component.scss']
 })
 export class SignOutComponent {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
   onSignOut() {
     this.authService.logout();
-    this.router.navigate(['/']).then(() => {
+    this.router.navigate(['/home']).then(() => {
       window.location.reload();
     });
   }

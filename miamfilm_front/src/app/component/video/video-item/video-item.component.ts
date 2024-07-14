@@ -1,22 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-video-item',
   templateUrl: './video-item.component.html',
   styleUrl: './video-item.component.scss'
 })
-export class VideoItemComponent implements OnInit {
-  images!: string[];
-  value: number = 2;
-
-  ngOnInit() {
-    this.images = [
-      'assets/img/fraisier.jpg',
-      'assets/img/frozencupcake.jpg',
-      'assets/img/sunflowercake.jpg',
-      'assets/img/tiramisu.jpg'
-    ];
-
-
-  }
+export class VideoItemComponent {
 }

@@ -1,4 +1,4 @@
-<div class="w-3/4 mx-auto my-16">
+<div class="w-3/4 mx-auto mb-16 mt-4">
     <h1 class="text-3xl font-roboto mb-4">Films</h1>
     <p-carousel [value]="images" [numVisible]="5" [numScroll]="1" [circular]="true"
         [responsiveOptions]="responsiveOptions">
@@ -11,7 +11,7 @@
                 </div>
                 <div id="image" class="image-item-content pr-5">
                     <a routerLink="/video/video-item">
-                        <img src="{{image}}" alt="Image" class="carousel-image" />
+                        <img src="{{image}}" alt="Image" class="carousel-image rounded-xl" />
                     </a>
                 </div>
             </div>

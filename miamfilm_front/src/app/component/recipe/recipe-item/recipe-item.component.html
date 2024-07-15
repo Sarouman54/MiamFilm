@@ -119,7 +119,12 @@
                 <p class="text-lg font-roboto">11/02/2002</p>
             </div>
             <div id="commentaire" class="mt-8 w-full flex flex-col items-center">
-                <h1 class="font-roboto text-2xl mb-4">Commentaires</h1>
+                <div class="flex justify-center items-center space-x-4 mb-4">
+                    <h1 class="font-roboto text-2xl">Commentaires</h1>
+                    <a routerLink="/comment/comment-form" class="hover:bg-[#FFD438] rounded-md">
+                        <img class="w-7" src="../../assets/img/change.png" alt="Un petit crayon" />
+                    </a>
+                </div>
                 <div class="overflow-x-auto w-full rounded-lg p-4">
                     <div class="flex space-x-2 min-w-max">
                         <app-comment-list></app-comment-list>

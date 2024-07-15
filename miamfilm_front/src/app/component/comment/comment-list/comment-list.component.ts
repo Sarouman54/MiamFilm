@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './comment-list.component.scss'
 })
 export class CommentListComponent {
-
+  value: number = 2;
 }

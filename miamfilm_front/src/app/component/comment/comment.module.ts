@@ -24,6 +24,10 @@ import { FormsModule } from '@angular/forms';
     CarouselModule,
     RatingModule,
     FormsModule
+  ],
+  exports: [
+    CommentItemComponent,
+    CommentListComponent
   ]
 })
 export class CommentModule { }

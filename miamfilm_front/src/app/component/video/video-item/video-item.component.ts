@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class VideoItemComponent implements OnInit {
   images!: string[];
   value: number = 2;
+  notes: string = '9';
 
   ngOnInit() {
     this.images = [
@@ -16,7 +17,5 @@ export class VideoItemComponent implements OnInit {
       'assets/img/sunflowercake.jpg',
       'assets/img/tiramisu.jpg'
     ];
-
-
   }
 }

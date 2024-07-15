@@ -7,7 +7,7 @@ import { RecipeItemComponent } from './recipe-item/recipe-item.component';
 import { CarouselModule } from 'primeng/carousel';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
-
+import { CommentModule } from "../comment/comment.module";
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     RecipeRoutingModule,
     FormsModule,
     RatingModule,
-    CarouselModule
+    CarouselModule,
+    CommentModule
   ]
 })
 export class RecipeModule { }

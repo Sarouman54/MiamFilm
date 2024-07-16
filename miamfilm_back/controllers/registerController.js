@@ -12,8 +12,8 @@ exports.signUp = async (req, res) => {
   const first_name    = req.body.first_name 
   const username    = req.body.username
   const email   = req.body.email
-  const password    = req.body.hashedPassword
-  const idRole  = req.body.idRole
+  const password    = req.body.password
+  const id_role  = req.body.id_role
 
   if( !last_name || !first_name || !username || !email || !password) return res.status(400).json({
       success: false,
@@ -65,7 +65,7 @@ exports.signUp = async (req, res) => {
     },
   ],
   async function(user, bcryptPassword) {
-    if(db.user.create({last_name: last_name, first_name: first_name, email: email, username: username, hashedPassword: bcryptPassword, idRole: idRole})) {
+    if(db.user.create({last_name: last_name, first_name: first_name, email: email, username: username, hashedPassword: bcryptPassword, id_role: id_role})) {
         return res.status(201).json({
           success: true,
           message: 'User created !'

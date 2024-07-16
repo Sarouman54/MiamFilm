@@ -28,19 +28,15 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
-    console.log("ici 1")
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       this.authService.login(email, password).subscribe(response => {
         console.log(email, password);
-          console.log('Login successful', response);
           localStorage.setItem('token', response.token as string);
-            console.log("ici 5 "+ localStorage.getItem)
             this.router.navigate(['/']).then(() => {
               window.location.reload();
             });
       }, error => {
-          console.error('Login failed', error);
           alert('Login failed: ' + JSON.stringify(error.error)); // Affiche les détails de l'erreur
       });
     }

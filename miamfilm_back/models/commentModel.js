@@ -10,6 +10,10 @@ module.exports = (instance) => {
         primaryKey: true,
         allowNull: false,
       },
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       description: {
         type: DataTypes.STRING,
         allowNull: false,

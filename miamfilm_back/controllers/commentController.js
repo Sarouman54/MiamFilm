@@ -28,7 +28,7 @@ exports.getCommentById = async (req, res, next) => {
 
 exports.addComment = async (req, res, next) => {
     console.log("ici 2 " + req.body.description)
-    const comment = await commentService.addComment(req.body.description, req.body.idVideo, req.body.idUser, req.body.idRecipe);
+    const comment = await commentService.addComment(req.body.title, req.body.description, req.body.idVideo, req.body.idUser, req.body.idRecipe);
     if(comment) {
         res.status(201).json({id: comment.id});
     } else {
@@ -37,7 +37,7 @@ exports.addComment = async (req, res, next) => {
 }
 
 exports.updateCommentById = async (req, res, next) => {
-    commentService.updateCommentById(req.params.id, req.body.description)
+    commentService.updateCommentById(req.params.id, req.body.title, req.body.description)
         .then(comment => res.status(200).json({ status: "succès", message: "Commentaire modifié avec succès", data: comment }))
         .catch(error => res.status(400).json({ status: "échec", message: "Impossible de modifier le commentaire", error: error }));
 }

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { VideoModel } from '../models/video.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,9 @@ export class VideoService {
 
   constructor(private http: HttpClient) {}
 
-  getAllVideo(): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}/video`);
+  getAllVideo(): Observable<VideoModel[]> {
+    return this.http.get<{ data: VideoModel[] }>(`${environment.apiUrl}/video`)
+    .pipe(map(response => response.data));
   }
 
   getVideoById(_id: string): Observable<any> {

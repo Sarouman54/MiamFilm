@@ -16,6 +16,11 @@ export class CarouselComponent implements OnInit {
   responsiveOptions: any[] = [
     {
       breakpoint: '1280px',
+      numVisible: 4,
+      numScroll: 1
+    },
+    {
+      breakpoint: '1280px',
       numVisible: 3,
       numScroll: 1
     },
@@ -38,17 +43,17 @@ export class CarouselComponent implements OnInit {
 
   constructor(
     private videoService: VideoService,
-  ) {}
+  ) { }
 
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.videoService.getAllVideo().subscribe((response: VideoModel[]) => {
       this.videoList = response
       console.log(this.videoList);
     },
-    error => {
-      console.error('Erreur lors de la récupération des commentaires :', error);
-    })
+      error => {
+        console.error('Erreur lors de la récupération des commentaires :', error);
+      })
 
     this.images = [
       'assets/img/frozen1.jpg',

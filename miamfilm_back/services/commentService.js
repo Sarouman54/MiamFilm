@@ -26,11 +26,12 @@ exports.getCommentById = async (id) => {
 
 }
 
-exports.addComment = async (description, idUser, idVideo, idRecipe) => {
+exports.addComment = async (title, description, idUser, idVideo, idRecipe) => {
 
     try {
         var today = new Date(); // Utiliser toLocaleString('fr-FR') pou afficher au fuseau horaire français
         return await comment.create({
+            title: title,
             description: description,
             created_at: today,
             updated_at: today,
@@ -45,12 +46,13 @@ exports.addComment = async (description, idUser, idVideo, idRecipe) => {
 
 }
 
-exports.updateCommentById = async (id, description) => {
+exports.updateCommentById = async (id, title, description) => {
 
     try {
         var today = new Date();
         return await comment.update(
             {
+                title: title,
                 description: description,
                 updated_at: today,
             }, 

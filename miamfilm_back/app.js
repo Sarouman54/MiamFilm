@@ -7,8 +7,9 @@ const commentRouter = require('./routers/commentRouter');
 const recipeRouter = require('./routers/recipeRouter');
 const roleRouter = require('./routers/roleRouter');
 const tagRouter = require('./routers/tagRouter');
-const userRouter = require('./routers/usersRouter');
+const usersRouter = require('./routers/usersRouter')
 const videoRouter = require('./routers/videoRouter');
+const registerRouter = require('./routers/registerRouter')
 
 require('dotenv').config()
 
@@ -22,18 +23,13 @@ app.use('/comment', commentRouter);
 app.use('/recipe', recipeRouter);
 app.use('/role', roleRouter);
 app.use('/tag', tagRouter);
-app.use('/user', userRouter);
+app.use('/users', usersRouter);
 app.use('/video', videoRouter);
+app.use('/auth', registerRouter);
 
 app.use((error, req, res, next) => {
     res.status(error.status || 500)
         .json({success: false, message: error.message, status: error.status})
 })
-
-const registerRouter = require('./routers/registerRouter')
-app.use('/auth', registerRouter)
-
-const usersRouter = require('./routers/usersRouter')
-app.use('/users', usersRouter)
 
 module.exports = app

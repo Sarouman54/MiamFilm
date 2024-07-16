@@ -8,7 +8,8 @@ import { CommentItemComponent } from './comment-item/comment-item.component';
 import { CommentDeleteComponent } from './comment-delete/comment-delete.component';
 import { CarouselModule } from 'primeng/carousel';
 import { RatingModule } from 'primeng/rating';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,7 +24,9 @@ import { FormsModule } from '@angular/forms';
     CommentRoutingModule,
     CarouselModule,
     RatingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     CommentItemComponent,

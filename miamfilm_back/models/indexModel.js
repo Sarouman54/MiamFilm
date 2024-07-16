@@ -50,7 +50,7 @@ instance.models.video.belongsTo(instance.models.user, {foreignKey: "id_user"});
 // Une video peut avoir plusieurs commentaires
 // instance.models.video.belongsToMany(instance.models.comment, {foreignKey: "idComment"})
 // Un commentaire ne peut appartenir qu'à une seule et unique video
-instance.models.comment.belongsTo(instance.models.video, {foreignKey: "id_video"});
+instance.models.comment.belongsTo(instance.models.video, {foreignKey: "id_video", allowNull: true});
 
 // Un utilisateur (auteur) peut poster plusieurs commentaires
 // instance.models.user.belongsToMany(instance.models.comment, {foreignKey: "idComment"})
@@ -60,4 +60,4 @@ instance.models.comment.belongsTo(instance.models.user, {foreignKey: "id_user"})
 // Une recette peut avoir plusieurs commentaires
 // instance.models.recipe.belongsToMany(instance.models.comment, {foreignKey: "idComment"})
 // Un commentaire ne peut être associé qu'à une seule et unique recette
-instance.models.comment.belongsTo(instance.models.recipe, {foreignKey: "id_recipe"});
+instance.models.comment.belongsTo(instance.models.recipe, {foreignKey: "id_recipe", allowNull: true});

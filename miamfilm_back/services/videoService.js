@@ -74,6 +74,7 @@ exports.addVideo = async (title) => {
                 actors = actors + item.name + ',';
             }
         })
+        var synopsis = movieItems.results[0].overview;
 
         var genres = "";
         var detailItems = await api.apiGetDetailByMovie(idMovie, "&language=fr-FR");
@@ -131,6 +132,7 @@ exports.addVideo = async (title) => {
             released: released,
             director: director,
             actors: actors,
+            synopsis: synopsis,
             genre: genres,
             type: "Film",
             runtime: runtime,
@@ -142,6 +144,33 @@ exports.addVideo = async (title) => {
     } catch (error) {
         console.error(error);
         throw new Error('Error to add video');
+    }
+
+}
+
+exports.updateVideoById = async (id, title, released, director, actors,synopsis, genres, type, runtime, poster, boxOffice) => {
+
+    try {
+        var today = new Date();
+        return await video.update(
+            {
+                title: title,
+                released: released,
+                director: director,
+                actors: actors,
+                synopsis: synopsis,
+                genre: genres,
+                type: type,
+                runtime: runtime,
+                poster: poster,
+                box_office: boxOffice,
+                updated_at: today,
+            }, 
+            {where: {id: id}}
+        );
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error to update video');
     }
 
 }

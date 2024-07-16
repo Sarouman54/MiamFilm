@@ -58,6 +58,25 @@ exports.addTag = async (name, color) => {
 
 }
 
+exports.updateTagById = async (id, name, color) => {
+
+    try {
+        var today = new Date();
+        return await tag.update(
+            {
+                name: name,
+                color: color,
+                updated_at: today,
+            }, 
+            {where: {id: id}}
+        );
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error to update tag');
+    }
+
+}
+
 exports.deleteTagById = async (id) => {
 
     try {

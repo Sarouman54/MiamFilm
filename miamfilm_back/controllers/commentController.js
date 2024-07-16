@@ -35,6 +35,12 @@ exports.addComment = async (req, res, next) => {
     }
 }
 
+exports.updateCommentById = async (req, res, next) => {
+    commentService.updateCommentById(req.params.id, req.body.description)
+        .then(comment => res.status(200).json({ status: "succès", message: "Commentaire modifié avec succès", data: comment }))
+        .catch(error => res.status(400).json({ status: "échec", message: "Impossible de modifier le commentaire", error: error }));
+}
+
 exports.deleteCommentById = (req, res, next) => {
     try {
         commentService.deleteCommentById(req.params.id)

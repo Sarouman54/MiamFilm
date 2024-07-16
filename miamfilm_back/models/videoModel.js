@@ -26,6 +26,10 @@ module.exports = (instance) => {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
+            synopsis: {
+                type: DataTypes.TEXT,
+                allowNull: false,
+            },
             genre: {
                 type: DataTypes.STRING,
                 allowNull: false,

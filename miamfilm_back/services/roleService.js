@@ -44,9 +44,12 @@ exports.getRoleByName = async (name) => {
 exports.addRole = async (name, description) => {
 
     try {
+        var today = new Date();
         return await role.create({
             name: name,
             description: description,
+            created_at: today,
+            updated_at: today,
         })
     } catch (error) {
         console.error(error);
@@ -58,10 +61,12 @@ exports.addRole = async (name, description) => {
 exports.updateRoleById = async (id, name, description) => {
 
     try {
+        var today = new Date();
         return await role.update(
             {
                 name: name,
-                description: description
+                description: description,
+                updated_at: today,
             }, 
             {where: {id: id}}
         );

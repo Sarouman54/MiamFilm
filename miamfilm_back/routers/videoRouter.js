@@ -8,7 +8,7 @@ router.get('/title/:title', videoController.getVideoByTitle);
 
 router.post('/', videoController.addVideo);
 
-router.put('/', videoController.updateVideo);
+router.put('/:id', videoController.updateVideoById);
 
 router.delete('/:id', videoController.deleteVideoById);
 

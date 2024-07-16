@@ -29,7 +29,7 @@ exports.getRecipeByTitle = async (req, res, next) => {
 }
 
 exports.addRecipe = async (req, res, next) => {
-    const recipe = await recipeService.addRecipe(req.body.title, req.body.persons, req.body.preparationTime, req.body.bakingTime, req.body.ingredients, req.body.picture);
+    const recipe = await recipeService.addRecipe(req.body.title, req.body.persons, req.body.preparationTime, req.body.bakingTime, req.body.ingredients, req.body.picture, req.body.description);
     if(recipe) {
         res.status(201).json({id: recipe.id});
     } else {
@@ -37,8 +37,10 @@ exports.addRecipe = async (req, res, next) => {
     }
 }
 
-exports.updateRecipe = async (req, res, next) => {
-    
+exports.updateRecipeById = async (req, res, next) => {
+    recipeService.updateRecipeById(req.params.id, req.body.title, req.body.persons, req.body.preparation_time, req.body.baking_time, req.body.ingredients, req.body.picture, req.body.description)
+    .then(recipe => res.status(200).json({ status: "succès", message: "Recette modifiée avec succès", data: recipe }))
+    .catch(error => res.status(400).json({ status: "échec", message: "Impossible de modifier la recette", error: error }));
 }
 
 exports.deleteRecipeById = (req, res, next) => {

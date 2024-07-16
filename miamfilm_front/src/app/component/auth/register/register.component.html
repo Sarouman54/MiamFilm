@@ -1,20 +1,34 @@
 <form>
-    <div class="relative rounded-3xl bg-[#FFD438] min-w-min forme1 z-10 w-1/4 max-xl:w-1/3 h-3/4 mt-20 mx-auto p-3">
+    <div class="relative rounded-xl bg-[#FFD438] min-w-min forme1 z-10 w-1/4 max-xl:w-1/3 h-3/4 mt-20 mx-auto p-3">
         <h1 class="text-black text-center text-5xl max-xl:text-4xl mb-10 mt-3 font-roboto">Inscription</h1>
+        <div class="max-xl:flex max-xl:space-x-4">
+            <div class="mb-5">
+                <label for="lastname" class="block mb-2 text-sm font-roboto text-black">Nom : </label>
+                <input type="text" id="username" formControlName="username"
+                    class="font-roboto bg-[#fffdf9e5] border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            </div>
+            <div class="mb-5">
+                <label for="username" class="block mb-2 text-sm font-roboto text-black">Prénom : </label>
+                <input type="text" id="username" formControlName="username"
+                    class="font-roboto bg-[#fffdf9e5] border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+            </div>
+        </div>
+        <div class="max-xl:flex max-xl:space-x-4">
         <div class="mb-5">
-            <label for="username" class="block mb-2 text-sm font-roboto text-black">Pseudo : </label>
+            <label for="name" class="block mb-2 text-sm font-roboto text-black">Pseudo : </label>
             <input type="text" id="username" formControlName="username"
-                class="font-roboto bg-[#FFFCF9] border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                class="font-roboto bg-[#fffdf9e5] border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
         </div>
         <div class="mb-5">
             <label for="email" class="block mb-2 text-sm font-roboto text-black">Email : </label>
             <input type="text" id="email" formControlName="email"
-                class="font-roboto bg-[#FFFCF9] border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                class="font-roboto bg-[#fffdf9e5] border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+        </div>
         </div>
         <div class="mb-5">
             <label for="password" class="block mb-2 text-sm font-roboto text-black">Mot de passe : </label>
             <input type="password" id="password" formControlName="password"
-                class="font-roboto bg-[#FFFCF9] border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                class="font-roboto bg-[#fffdf9e5] border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
         </div>
         <div class="min-w-min mb-2">
             <div class="flex">

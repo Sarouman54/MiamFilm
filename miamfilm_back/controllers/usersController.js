@@ -24,7 +24,7 @@ exports.addUser = async (req, res, next) => {
 
    bcrypt.hash(req.body.hashedPassword, 10, async function(err, bcryptPassword){
       if(bcryptPassword){
-         const userCreated = await usersService.addUser(req.body.last_name, req.body.first_name, req.body.email, req.body.username, bcryptPassword, req.body.idRole)
+         const userCreated = await usersService.addUser(req.body.last_name, req.body.first_name, req.body.email, req.body.username, bcryptPassword, req.body.id_role)
          if (userCreated) {
             res.status(201).json({id: userCreated.id})
          } else {
@@ -47,7 +47,7 @@ exports.putUser = (req, res, next) => {
    const userConnected = jwt.verify(req.headers.authorization.split(' ')[1], process.env.JWT_SIGN_SECRET)
    bcrypt.hash(req.body.hashedPassword, 10, async function(err, bcryptPassword){
       if(bcryptPassword){
-         const userUpdated = usersService.putUser(userConnected.userId, req.body.last_name, req.body.first_name, req.body.email, req.body.username, bcryptPassword, req.body.idRole)
+         const userUpdated = usersService.putUser(userConnected.userId, req.body.last_name, req.body.first_name, req.body.email, req.body.username, bcryptPassword, req.body.id_role)
          if (userUpdated) {
             res.status(200).json({
                success: true,

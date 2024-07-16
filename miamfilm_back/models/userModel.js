@@ -39,7 +39,7 @@ module.exports = (instance) => {
         type: DataTypes.DATE,
         allowNull: true,
       },
-      idRole: {
+      id_role: {
         type: DataTypes.INTEGER,
         allowNull: true,
       }

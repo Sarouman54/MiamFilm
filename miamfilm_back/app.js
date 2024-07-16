@@ -7,7 +7,7 @@ const commentRouter = require('./routers/commentRouter');
 const recipeRouter = require('./routers/recipeRouter');
 const roleRouter = require('./routers/roleRouter');
 const tagRouter = require('./routers/tagRouter');
-const userRouter = require('./routers/userRouter');
+const userRouter = require('./routers/usersRouter');
 const videoRouter = require('./routers/videoRouter');
 
 require('dotenv').config()
@@ -31,7 +31,7 @@ app.use((error, req, res, next) => {
 })
 
 const registerRouter = require('./routers/registerRouter')
-app.use('/register', registerRouter)
+app.use('/auth', registerRouter)
 
 const usersRouter = require('./routers/usersRouter')
 app.use('/users', usersRouter)

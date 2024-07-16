@@ -11,12 +11,12 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  register(last_name: string, first_name: string, username: string, email: string, password: string, idRole: string): Observable<any> {
-    return this.http.post<any>(`${environment.apiUrl}/auth/register`, {last_name, first_name, username, email , password, idRole});
+  register(last_name: string, first_name: string, username: string, email: string, password: string, id_role: number): Observable<any> {
+    return this.http.post<any>(`${environment.apiUrl}/auth/signUp`, {last_name, first_name, username, email , password, id_role});
   }
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post<any>(`${environment.apiUrl}/register/register`, {email, password});
+    return this.http.post<any>(`${environment.apiUrl}/auth/signIn`, {email, password});
   }
 
   logout(): void {

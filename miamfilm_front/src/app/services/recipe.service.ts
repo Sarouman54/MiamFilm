@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { RecipeModel } from '../models/recipe.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class VideoService {
+export class RecipeService {
 
   constructor(private http: HttpClient) {}
 
-  getAllRecipe(): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}/recipe`);
+  getAllRecipe(): Observable<RecipeModel[]> {
+    return this.http.get<{ data: RecipeModel[] }>(`${environment.apiUrl}/recipe`)
+    .pipe(map(response => response.data));
   }
 
   getRecipeById(_id: string): Observable<any> {

@@ -2,7 +2,7 @@ const commentService = require('../services/commentService');
 const createError = require('http-errors');
 
 exports.getAllComment = async (req, res, next) => {
-    commentService.getComment()
+    commentService.getAllComment()
         .then(comment => res.status(200).json({ status: "success", message: "Commentaires récupérés avec succès", data: comment }))
         .catch(error => res.status(400).json({ status: "fail", message: "Impossible de récupérer les commentaires", error: error }));
 }

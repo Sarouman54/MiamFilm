@@ -1,6 +1,6 @@
 const { comment } = require('../models/indexModel');
 
-exports.getComment = async () => {
+exports.getAllComment = async () => {
 
     try {
         return await comment.findAll();

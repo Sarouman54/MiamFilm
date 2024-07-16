@@ -5,9 +5,12 @@ export class RecipeModel {
     title?: string;
     persons?: number;
     preparation_time?: Time;
-    baking_time?: Time;
     ingredients?: string;
     picture?: string;
+    description?: Text;
+    difficulty?: string;
+    note?: number;
     created_at?: Date;
     updated_at?: Date;
 }
+

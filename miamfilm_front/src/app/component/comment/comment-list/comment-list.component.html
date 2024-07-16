@@ -1,5 +1,36 @@
+<h2>Liste des Commentaires</h2>
+
+<div *ngIf="commentList">
+    <ul>
+      <li *ngFor="let comment of commentList">
+        <button routerLink="/comment/comment-item" class="border-2 border-black min-w-96 rounded-xl mt-5 p-4 flex relative">
+            <div class="flex flex-col items-center w-40">
+                <img src="../../assets/img/user-icon.png" alt="Image" class="w-5/12" />
+                <p class="font-roboto text-sm max-xl:text-sm">Auteur :</p>
+                <p class="font-roboto text-sm max-xl:text-sm">Namiou</p>
+                <div class="flex mt-2">
+                    <p class="mr-1 font-roboto text-xs">Date:</p>
+                    <p class="font-roboto text-xs">11/02/2002</p>
+                </div>
+            </div>
+            <div class="relative flex-grow ml-2 text-left">
+                <h3 class="font-roboto text-xl max-xl:text-lg">Mon disney préféré !!!</h3>
+                <div id="note"
+                    class="absolute -top-3 -right-3 bg-[#A9B2AE] rounded-full h-12 w-12 max-xl:w-10 max-xl:h-10 flex justify-center items-center">
+                    <p class="text-black font-roboto text-xl max-xl:text-lg">9</p>
+                </div>
+                <p class="font-roboto text-base max-xl:text-sm">{{ comment.description }}</p>
+            </div>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="commentList.length === 0">
+    <p>Aucun commentaire trouvé.</p>
+  </div>
+
 <!-- Commentaire film -->
-<button routerLink="/comment/comment-item" class="border-2 border-black min-w-96 rounded-xl mt-5 p-4 flex relative">
+<!-- <button routerLink="/comment/comment-item" class="border-2 border-black min-w-96 rounded-xl mt-5 p-4 flex relative">
     <div class="flex flex-col items-center w-40">
         <img src="../../assets/img/user-icon.png" alt="Image" class="w-5/12" />
         <p class="font-roboto text-sm max-xl:text-sm">Auteur :</p>
@@ -19,7 +50,7 @@
             une suite
             !!</p>
     </div>
-</button>
+</button> -->
 
 
 <!-- Commentaire recette -->

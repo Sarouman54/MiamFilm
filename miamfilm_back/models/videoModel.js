@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize")
 
 module.exports = (instance) => {
     return instance.define(
-        "review",
+        "video",
         {
             id: {
                 type: DataTypes.INTEGER,
@@ -35,7 +35,7 @@ module.exports = (instance) => {
                 allowNull: false,
             },
             runtime: {
-                type: DataTypes.TIME,
+                type: DataTypes.INTEGER,
                 allowNull: false,
             },
             poster: {
@@ -54,6 +54,9 @@ module.exports = (instance) => {
                 type: DataTypes.DATE,
                 allowNull: false,
             }
+        },
+        {
+          timestamps: false,
         }
     )
 }

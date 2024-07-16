@@ -19,11 +19,11 @@ module.exports = (instance) => {
         allowNull: false,
       },
       preparation_time: {
-        type: DataTypes.TIME,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       baking_time: {
-        type: DataTypes.TIME,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       ingredients: {

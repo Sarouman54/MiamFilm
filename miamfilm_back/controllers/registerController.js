@@ -81,7 +81,7 @@ exports.signUp = async (req, res) => {
 
 exports.signIn = async (req, res) => {
   const email   = req.body.email
-  const password= req.body.hashedPassword
+  const password= req.body.password
 
   if(!email || !password) return res.status(400).json({
     success: false,
@@ -90,9 +90,7 @@ exports.signIn = async (req, res) => {
 
   waterfall([
     async function(callback) {
-      await db.user.findOne({where:
-        sequelize.where(sequelize.fn('BINARY', sequelize.col('email')), email)
-      })
+      await db.user.findOne({where: {email: email}})
         .then(function(user) {
           callback(null, user)
         })
@@ -105,14 +103,13 @@ exports.signIn = async (req, res) => {
     },
     function(user, callback) {
       if(user){
-        console.log(password, user.hashedPassword)
         bcrypt.compare(password, user.hashedPassword, function(errBcrypt, resBcrypt) {
           callback(null, user, resBcrypt)
         })
       } else {
         return res.status(404).json({
           success: false,
-          error: 'password invalid'
+          error: 'Email or password invalid'
         })
       }
     },

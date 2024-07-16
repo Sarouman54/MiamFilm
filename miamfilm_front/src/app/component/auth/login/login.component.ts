@@ -30,26 +30,19 @@ export class LoginComponent {
   onSubmit(): void {
     console.log("ici 1")
     if (this.loginForm.valid) {
-      console.log("ici 2")
       const { email, password } = this.loginForm.value;
-      console.log("ici 3 "+ email, password)
-      this.authService.login(email, password).subscribe(
-        (response: AuthResponse) => {
-          if (response.success) {
-            console.log("ici 4 "+ response.success)
-            localStorage.setItem('token', response.token as string);
+      this.authService.login(email, password).subscribe(response => {
+        console.log(email, password);
+          console.log('Login successful', response);
+          localStorage.setItem('token', response.token as string);
             console.log("ici 5 "+ localStorage.getItem)
             this.router.navigate(['/']).then(() => {
               window.location.reload();
             });
-          } else {
-            this.message = 'Connexion échouée';
-          }
-        },
-        error => {
-          this.message = error.error.message;
-        }
-      );
+      }, error => {
+          console.error('Login failed', error);
+          alert('Login failed: ' + JSON.stringify(error.error)); // Affiche les détails de l'erreur
+      });
     }
    }
 

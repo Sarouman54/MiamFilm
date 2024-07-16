@@ -41,7 +41,7 @@ exports.getRecipeByTitle = async (title) => {
 
 }
 
-exports.addRecipe = async (title, persons, preparationTime, bakingTime, ingredients, picture, description) => {
+exports.addRecipe = async (idUser, title, persons, preparationTime, ingredients, picture, description, difficulty, note) => {
 
     try {
         var today = new Date(); // Utiliser toLocaleString('fr-FR') pour afficher au fuseau horaire français
@@ -49,13 +49,14 @@ exports.addRecipe = async (title, persons, preparationTime, bakingTime, ingredie
             title: title,
             persons: persons,
             preparation_time: preparationTime,
-            baking_time: bakingTime,
             ingredients: ingredients,
             picture: picture,
             description: description,
+            difficulty: difficulty,
+            note: note,
             created_at: today,
             updated_at: today,
-            id_user: 1,
+            id_user: idUser,
         });
     } catch (error) {
         console.error(error);
@@ -64,7 +65,7 @@ exports.addRecipe = async (title, persons, preparationTime, bakingTime, ingredie
 
 }
 
-exports.updateRecipeById = async (id, title, persons, preparationTime, bakingTime, ingredients, picture, description) => {
+exports.updateRecipeById = async (id, title, persons, preparationTime, ingredients, picture, description, difficulty, note) => {
 
     try {
         var today = new Date();
@@ -73,10 +74,11 @@ exports.updateRecipeById = async (id, title, persons, preparationTime, bakingTim
                 title: title,
                 persons: persons,
                 preparation_time: preparationTime,
-                baking_time: bakingTime,
                 ingredients: ingredients,
                 picture: picture,
                 description: description,
+                difficulty: difficulty,
+                note: note,
                 updated_at: today,
             }, 
             {where: {id: id}}

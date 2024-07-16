@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { CommentModel } from '../models/comment.model';
 import { jwtDecode } from "jwt-decode";
 
 @Injectable({
@@ -21,8 +22,8 @@ import { jwtDecode } from "jwt-decode";
     //   return this.http.post<any>(`${environment.apiUrl}/comment`, { description, id_video, id_user, id_recipe});
     // }
 
-    getAllComment(Token: string): Observable<any> {
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${Token}`);
-      return this.http.post<any>(`${environment.apiUrl}/comment`, {headers});
+    getAllComment(): Observable<CommentModel[]> {
+      return this.http.get<{ data: CommentModel[] }>(`${environment.apiUrl}/comment`)
+      .pipe(map(response => response.data));
     }
   }

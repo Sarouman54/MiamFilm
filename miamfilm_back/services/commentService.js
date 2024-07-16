@@ -45,6 +45,24 @@ exports.addComment = async (description, idUser, idVideo, idRecipe) => {
 
 }
 
+exports.updateCommentById = async (id, description) => {
+
+    try {
+        var today = new Date();
+        return await comment.update(
+            {
+                description: description,
+                updated_at: today,
+            }, 
+            {where: {id: id}}
+        );
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error to update comment');
+    }
+
+}
+
 exports.deleteCommentById = async (id) => {
 
     try {

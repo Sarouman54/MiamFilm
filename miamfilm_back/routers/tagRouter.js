@@ -8,7 +8,7 @@ router.get('/name/:name', tagController.getTagByName);
 
 router.post('/', tagController.addTag);
 
-router.put('/', tagController.updateTag);
+router.put('/:id', tagController.updateTagById);
 
 router.delete('/:id', tagController.deleteTagById);
 

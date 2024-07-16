@@ -26,8 +26,8 @@ exports.addRole = (req, res, next) => {
 
 exports.updateRoleById = async (req, res, next) => {
     roleService.updateRoleById(req.params.id, req.body.name, req.body.description)
-        .then(role => res.status(200).json({ status: "success", message: "Rôle modifié avec succès", data: role }))
-        .catch(error => res.status(400).json({ status: "fail", message: "Impossible de modifier le rôle", error: error }));
+        .then(role => res.status(200).json({ status: "succès", message: "Rôle modifié avec succès", data: role }))
+        .catch(error => res.status(400).json({ status: "échec", message: "Impossible de modifier le rôle", error: error }));
 }
 
 exports.deleteRoleById = (req, res, next) => {

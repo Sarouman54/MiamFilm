@@ -37,8 +37,10 @@ exports.addTag = async (req, res, next) => {
     }
 }
 
-exports.updateTag = async (req, res, next) => {
-    
+exports.updateTagById = async (req, res, next) => {
+    tagService.updateTagById(req.params.id, req.body.name, req.body.color)
+        .then(tag => res.status(200).json({ status: "succès", message: "Tag modifié avec succès", data: tag }))
+        .catch(error => res.status(400).json({ status: "échec", message: "Impossible de modifier le tag", error: error }));
 }
 
 exports.deleteTagById = (req, res, next) => {

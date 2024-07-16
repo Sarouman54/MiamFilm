@@ -8,7 +8,7 @@ router.get('/:id', commentController.getCommentById);
 
 router.post('/', commentController.addComment);
 
-// router.put('/', commentController.updateComment);
+router.put('/:id', commentController.updateCommentById);
 
 router.delete('/:id', commentController.deleteCommentById);
 

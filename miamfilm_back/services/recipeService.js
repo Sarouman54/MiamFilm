@@ -41,10 +41,10 @@ exports.getRecipeByTitle = async (title) => {
 
 }
 
-exports.addRecipe = async (title, persons, preparationTime, bakingTime, ingredients, picture) => {
+exports.addRecipe = async (title, persons, preparationTime, bakingTime, ingredients, picture, description) => {
 
     try {
-        var today = new Date(); // Utiliser toLocaleString('fr-FR') pou afficher au fuseau horaire français
+        var today = new Date(); // Utiliser toLocaleString('fr-FR') pour afficher au fuseau horaire français
         return await recipe.create({
             title: title,
             persons: persons,
@@ -52,6 +52,7 @@ exports.addRecipe = async (title, persons, preparationTime, bakingTime, ingredie
             baking_time: bakingTime,
             ingredients: ingredients,
             picture: picture,
+            description: description,
             created_at: today,
             updated_at: today,
             id_user: 1,
@@ -59,6 +60,30 @@ exports.addRecipe = async (title, persons, preparationTime, bakingTime, ingredie
     } catch (error) {
         console.error(error);
         throw new Error('Error to add recipe');
+    }
+
+}
+
+exports.updateRecipeById = async (id, title, persons, preparationTime, bakingTime, ingredients, picture, description) => {
+
+    try {
+        var today = new Date();
+        return await recipe.update(
+            {
+                title: title,
+                persons: persons,
+                preparation_time: preparationTime,
+                baking_time: bakingTime,
+                ingredients: ingredients,
+                picture: picture,
+                description: description,
+                updated_at: today,
+            }, 
+            {where: {id: id}}
+        );
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error to update recipe');
     }
 
 }

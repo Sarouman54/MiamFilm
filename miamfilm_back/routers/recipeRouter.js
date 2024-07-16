@@ -8,7 +8,7 @@ router.get('/title/:title', recipeController.getRecipeByTitle);
 
 router.post('/', recipeController.addRecipe);
 
-router.put('/', recipeController.updateRecipe);
+router.put('/:id', recipeController.updateRecipeById);
 
 router.delete('/:id', recipeController.deleteRecipeById);
 

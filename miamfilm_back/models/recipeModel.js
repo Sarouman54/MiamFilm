@@ -22,16 +22,24 @@ module.exports = (instance) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      baking_time: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
       ingredients: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
       picture: {
         type: DataTypes.STRING,
+        allowNull: false,
+      },
+      description: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      difficulty: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      note: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       created_at: {

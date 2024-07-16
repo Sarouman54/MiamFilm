@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
     <!--<div class="relative rounded-3xl bg-[#FFD438] min-w-min forme1 z-10 w-1/4 h-3/4 mt-20 mx-auto p-3">
         <h1 class="text-black font-roboto text-center mt-8 mb-10 text-5xl">Ajout d'une critique</h1>
         <div class="flex">
@@ -40,8 +40,8 @@
         <h1 class="text-black font-roboto text-center mt-8 mb-10 text-5xl">Ajout d'un commentaire</h1>
         <div class="flex">
             <div class="inline-block relative w-64 mb-5">
-                <label for="game" class="block mb-2 text-sm font-medium font-roboto text-black">Recette :</label>
-                <select id="game" name="game"
+                <label for="game" class="block mb-2 text-sm font-medium font-roboto text-black">Titre :</label>
+                <select id="title" name="title"
                     class="block text-black appearance-none w-full font-roboto bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                 </select>
             </div>
@@ -63,14 +63,14 @@
             <label for="critique" class="block mb-2 text-sm font-medium font-roboto text-black">Texte :</label>
             <div>
                 <label class="sr-only font-roboto" for="critique">Recette</label>
-                <textarea id="critique" name="critique"
+                <textarea id="description" formControlName="description"
                     class="w-full rounded-lg border-gray-200 font-roboto p-3 text-gray-900 text-sm"
                     placeholder="Le meilleur dessert du monde !!" rows="8"></textarea>
             </div>
         </div>
         <div class="min-w-min">
             <div class="flex">
-                <button type="submit" routerLink="/recipe/recipe-item"
+                <button type="submit"
                     class="text-white font-roboto mr-4 bg-[#031826] hover:bg-[#083C5E] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-40 px-5 py-2.5 mx-auto text-center ">
                     Valider
                 </button>

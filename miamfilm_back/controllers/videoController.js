@@ -10,15 +10,6 @@ exports.getAllVideo = async (req, res, next) => {
     }
 }
 
-exports.getVideoByTitle = async (req, res, next) => {
-    const video = await videoService.getVideoByTitle(req.params.title);
-    if(video) {
-        res.json({ data: video });
-    } else {
-        next(createError(404, "Error no video found for this title"));
-    }
-}
-
 exports.getVideoById = async (req, res, next) => {
     const video = await videoService.getVideoById(req.params.id);
     if(video) {
@@ -28,11 +19,33 @@ exports.getVideoById = async (req, res, next) => {
     }
 }
 
+exports.getVideoByTitle = async (req, res, next) => {
+    const video = await videoService.getVideoByTitle(req.params.title);
+    if(video) {
+        res.json({ data: video });
+    } else {
+        next(createError(404, "Error no video found for this title"));
+    }
+}
+
 exports.addVideo = async (req, res, next) => {
-    const videoCreated = videoService.addVideo(req.body.title);
+    const videoCreated = await videoService.addVideo(req.body.title);
     if(videoCreated) {
         res.status(201).json({id: videoCreated.id});
     } else {
-        next(createError(404, "Error when creating this video"))
+        next(createError(404, "Error when creating this video"));
     }
+}
+
+exports.updateVideo = async (req, res, next) => {
+    
+}
+
+exports.deleteVideoById = (req, res, next) => {
+    try {
+        videoService.deleteVideoById(req.params.id)
+        res.status(204).send()
+     } catch(e) {
+        next(createError(404, `Video not found`));
+     }
 }

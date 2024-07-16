@@ -50,6 +50,10 @@ module.exports = (instance) => {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
+            average: {
+                type: DataTypes.FLOAT,
+                allowNull: false,
+            },
             created_at: {
                 type: DataTypes.DATE,
                 allowNull: false,

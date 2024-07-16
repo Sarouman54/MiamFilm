@@ -90,6 +90,7 @@ exports.addVideo = async (title, idUser) => {
         var runtime = detailItems.runtime;
         var poster = movieItems.results[0].poster_path;
         var boxOffice = detailItems.revenue; // En Millions
+        var average = movieItems.results[0].vote_average;
     // } else if(serieItems.results[0] && serieItems.results[0].title.toLowerCase() == title.toLowerCase()) {
     //     var idSerie = serieItems.results[0].id;
 
@@ -142,6 +143,7 @@ exports.addVideo = async (title, idUser) => {
             runtime: runtime,
             poster: poster,
             box_office: boxOffice,
+            average: average,
             created_at: today,
             updated_at: today,
             id_user: idUser,
@@ -153,7 +155,7 @@ exports.addVideo = async (title, idUser) => {
 
 }
 
-exports.updateVideoById = async (id, title, released, director, actors,synopsis, genres, type, runtime, poster, boxOffice) => {
+exports.updateVideoById = async (id, title, released, director, actors,synopsis, genres, type, runtime, poster, boxOffice, average) => {
 
     try {
         var today = new Date();
@@ -169,6 +171,7 @@ exports.updateVideoById = async (id, title, released, director, actors,synopsis,
                 runtime: runtime,
                 poster: poster,
                 box_office: boxOffice,
+                average: average,
                 updated_at: today,
             }, 
             {where: {id: id}}

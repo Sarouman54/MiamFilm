@@ -41,6 +41,15 @@ exports.getTagByName = async (name) => {
 
 }
 
+exports.getIdTagByName = async (name) => {
+
+    return await tag.findOne({
+        where: {
+            name: name
+        },
+    })
+}
+
 exports.addTag = async (name, color) => {
 
     try {

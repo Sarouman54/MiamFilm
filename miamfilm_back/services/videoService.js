@@ -1,5 +1,5 @@
 const { video } = require('../models/indexModel');
-const { addTag } = require('../services/tagService');
+const { getTag, getIdTagByName, getTagByName, addTag } = require('../services/tagService');
 const api = require('./fetchApiService');
 
 exports.getVideo = async () => {
@@ -43,7 +43,7 @@ exports.getVideoByTitle = async (title) => {
 
 }
 
-exports.addVideo = async (title) => {
+exports.addVideo = async (title, idUser) => {
 
     var movieItems = await api.apiGetMovieByTitle('&query='+title+'&language=fr-FR');
     var serieItems = await api.apiGetSerieByTitle('&query='+title+'&language=fr-FR');
@@ -80,7 +80,11 @@ exports.addVideo = async (title) => {
         var detailItems = await api.apiGetDetailByMovie(idMovie, "&language=fr-FR");
         detailItems.genres.forEach(item => {
             genres = genres + item.name + ',';
-            addTag(item.name, "#ff0000");
+            getIdTagByName(item.name).then(id => {
+                if(!id) {
+                    addTag(item.name, "#ff0000");
+                }
+            });
         });
 
         var runtime = detailItems.runtime;
@@ -140,6 +144,7 @@ exports.addVideo = async (title) => {
             box_office: boxOffice,
             created_at: today,
             updated_at: today,
+            id_user: idUser,
         });
     } catch (error) {
         console.error(error);

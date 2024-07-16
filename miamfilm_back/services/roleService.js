@@ -26,6 +26,15 @@ exports.getRoleById = async (id) => {
 
 }
 
+exports.getIdRoleByName = async (name) => {
+    return await role.findOne({
+        where: {
+            name: name,
+        },
+        attributes: ['id'],
+    })
+}
+
 exports.getRoleByName = async (name) => {
 
     try {

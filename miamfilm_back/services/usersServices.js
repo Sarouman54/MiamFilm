@@ -6,8 +6,17 @@ exports.getUsers = async (req, res, next) => {
   })
 }
 
+exports.getUserByRoleId = async (roleId) => {
+  return await user.findOne({
+    where: {
+      id_role: roleId,
+    },
+    attributes: ['id'],
+  })
+}
+
 exports.addUser = async (last_name, first_name, username, email, hashedPassword, id_role) => {
-  return await user.create({last_name: last_name, first_name: first_name, username: username, email: email, hashedPassword: hashedPassword, id_role: id_role})
+  return await user.create({last_name: last_name, first_name: first_name, username: username, email: email, hashedPassword: hashedPassword, id_role: id_role, created_at: new Date(), updated_at: new Date()})
 }
 
 exports.getUserById = async (id) => {

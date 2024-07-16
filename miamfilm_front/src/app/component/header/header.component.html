@@ -154,12 +154,17 @@
         </div>
       </div>-->
       <div class="flex mr-8 my-auto">
-        <a routerLink="/auth/login"
+        <ng-container *ngIf="isTokenValid; else onlinedata">
+          <button (click)="onSignOut()"
+          class="text-black hover:bg-[#671321] hover:text-[#FFD438] rounded-md px-2 py-2 text-xl max-xl:text-base font-roboto">Se déconnecter</button>
+        </ng-container>
+        <ng-template #onlinedata>
+          <a routerLink="/auth/login"
           class="text-black hover:bg-[#671321] hover:text-[#FFD438] rounded-md px-2 py-2 text-xl max-xl:text-base font-roboto">Connexion</a>
         <a routerLink="/auth/register"
           class="text-black hover:bg-[#671321] hover:text-[#FFD438] rounded-md px-2 py-2 text-xl  max-xl:text-base font-roboto">Inscription</a>
+        </ng-template>
       </div>
     </div>
-
   </div>
 </div>

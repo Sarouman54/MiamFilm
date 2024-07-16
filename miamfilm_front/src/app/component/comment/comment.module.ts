@@ -6,7 +6,9 @@ import { CommentFormComponent } from './comment-form/comment-form.component';
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { CommentItemComponent } from './comment-item/comment-item.component';
 import { CommentDeleteComponent } from './comment-delete/comment-delete.component';
-
+import { CarouselModule } from 'primeng/carousel';
+import { RatingModule } from 'primeng/rating';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,11 +16,18 @@ import { CommentDeleteComponent } from './comment-delete/comment-delete.componen
     CommentFormComponent,
     CommentListComponent,
     CommentItemComponent,
-    CommentDeleteComponent
+    CommentDeleteComponent,
   ],
   imports: [
     CommonModule,
-    CommentRoutingModule
+    CommentRoutingModule,
+    CarouselModule,
+    RatingModule,
+    FormsModule
+  ],
+  exports: [
+    CommentItemComponent,
+    CommentListComponent
   ]
 })
 export class CommentModule { }

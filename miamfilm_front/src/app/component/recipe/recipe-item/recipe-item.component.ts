@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './recipe-item.component.scss'
 })
 export class RecipeItemComponent {
+  value: number = 2;
 
 }

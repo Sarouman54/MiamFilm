@@ -1,0 +1,147 @@
+<div class="p-16">
+    <div class="flex space-x-4">
+        <div id="film" class="flex ml-0 w-3/4 p-4 space-x-5 border-2 border-black rounded-xl">
+            <div id="image" class="image-item-content min-w-screen my-auto">
+                <img src="../../assets/img/frozen2.jpg" alt="Image" class="rounded-xl" />
+            </div>
+            <div>
+                <div class="flex">
+                    <h1 class="font-roboto text-3xl">La reine des neiges</h1>
+                    <div id="note"
+                        class="flex bg-[#A9B2AE] rounded-full h-14 w-14 justify-center items-center ml-auto top-3 right-3">
+                        <p class="text-black font-roboto text-2xl">{{notes}}</p>
+                    </div>
+                </div>
+                <p class="font-roboto text-xl mt-5 ">Anna, une jeune fille aussi audacieuse qu’optimiste, se lance dans
+                    un
+                    incroyable voyage en compagnie de
+                    Kristoff, un montagnard expérimenté, et de son fidèle renne, Sven, à la recherche de sa sœur, Elsa,
+                    la
+                    Reine des Neiges qui a plongé le royaume d’Arendelle dans un hiver éternel… En chemin, ils vont
+                    rencontrer de mystérieux trolls et un drôle de bonhomme de neige nommé Olaf, braver les conditions
+                    extrêmes des sommets escarpés et glacés, et affronter la magie qui les guette à chaque pas.
+                </p>
+            </div>
+        </div>
+        <div id="recette" class="w-1/4">
+            <div class="mx-auto border-2 border-black rounded-xl p-4 max-h-screen">
+                <h1 class="text-3xl max-xl:text-2xl font-roboto mb-4 text-center">Recettes du film</h1>
+                <div class="overflow-y-scroll max-h-72">
+                    <button routerLink="/recipe/recipe-item" class="bg-[#FFFCF9]  rounded-xl p-2 mb-4">
+                        <div>
+                            <div class="flex">
+                                <div class="image-item mr-4 w-5/12">
+                                    <div id="image" class="image-item-content">
+                                        <img src="../../assets/img/fraisier.jpg" alt="Image"
+                                            class="carousel-image rounded-xl" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <h2 class="font-roboto text-left text-2xl max-xl:text-lg">Dessert</h2>
+                                    <div>
+                                        <p-rating [(ngModel)]="value" stars="5">
+                                            <ng-template pTemplate="onicon">
+                                                <img src="../../assets/img/ratingcolor.png"
+                                                    class="w-8 h-8 max-xl:w-5 max-xl:h-4" />
+                                            </ng-template>
+                                            <ng-template pTemplate="officon">
+                                                <img src="../../assets/img/rating.png"
+                                                    class="w-8 h-8 max-xl:w-5 max-xl:h-4" />
+                                            </ng-template>
+                                        </p-rating>
+                                    </div>
+                                    <div class="flex space-x-2 max-xl:space-x-3 ">
+                                        <div class="flex mt-4 max-xl:mt-2">
+                                            <img src="../../assets/img/time.png"
+                                                class="w-6 h-6 max-xl:w-4 max-xl:h-4" />
+                                            <div class="flex">
+                                                <p
+                                                    class="font-roboto text-base max-xl:text-sm ml-2 mr-1 max-xl:ml-0 max-xl:mr-0">
+                                                    45
+                                                </p>
+                                                <p class="font-roboto text-base max-xl:text-sm">mins</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex mt-4 max-xl:mt-2">
+                                            <img src="../../assets/img/toque.png"
+                                                class="w-6 h-6 max-xl:w-4 max-xl:h-4" />
+                                            <p class="font-roboto text-base max-xl:text-sm ml-2 max-xl:ml-0">Moyen</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                    <button routerLink="/recipe/recipe-item"
+                        class="bg-[#FFFCF9] border-2 border-black rounded-xl p-2 mb-4">
+                        <div>
+                            <div class="flex">
+                                <div class="image-item mr-4 w-5/12">
+                                    <div id="image" class="image-item-content">
+                                        <img src="../../assets/img/fraisier.jpg" alt="Image"
+                                            class="carousel-image rounded-xl" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <h2 class="font-roboto text-left text-2xl max-xl:text-lg">Dessert</h2>
+                                    <div>
+                                        <p-rating [(ngModel)]="value" stars="5">
+                                            <ng-template pTemplate="onicon">
+                                                <img src="../../assets/img/ratingcolor.png"
+                                                    class="w-8 h-8 max-xl:w-5 max-xl:h-4" />
+                                            </ng-template>
+                                            <ng-template pTemplate="officon">
+                                                <img src="../../assets/img/rating.png"
+                                                    class="w-8 h-8 max-xl:w-5 max-xl:h-4" />
+                                            </ng-template>
+                                        </p-rating>
+                                    </div>
+                                    <div class="flex space-x-2 max-xl:space-x-3 ">
+                                        <div class="flex mt-4 max-xl:mt-2">
+                                            <img src="../../assets/img/time.png"
+                                                class="w-6 h-6 max-xl:w-4 max-xl:h-4" />
+                                            <div class="flex">
+                                                <p
+                                                    class="font-roboto text-base max-xl:text-sm ml-2 mr-1 max-xl:ml-0 max-xl:mr-0">
+                                                    45
+                                                </p>
+                                                <p class="font-roboto text-base max-xl:text-sm">mins</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex mt-4 max-xl:mt-2">
+                                            <img src="../../assets/img/toque.png"
+                                                class="w-6 h-6 max-xl:w-4 max-xl:h-4" />
+                                            <p class="font-roboto text-base max-xl:text-sm ml-2 max-xl:ml-0">Moyen</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="flex items-center mt-10">
+            <h1 class="font-roboto text-3xl">Critiques :</h1>
+            <a routerLink="/comment/comment-form" class="hover:bg-[#FFD438] rounded-md ml-auto ">
+                <img class="w-7" src="../../assets/img/change.png" alt="Un petit crayon" />
+            </a>
+        </div>
+        <div class="overflow-x-auto">
+            <div class="flex space-x-2">
+                <app-comment-list></app-comment-list>
+                <app-comment-list></app-comment-list>
+                <app-comment-list></app-comment-list>
+                <app-comment-list></app-comment-list>
+                <app-comment-list></app-comment-list>
+                <app-comment-list></app-comment-list>
+                <app-comment-list></app-comment-list>
+                <app-comment-list></app-comment-list>
+                <app-comment-list></app-comment-list>
+
+            </div>
+        </div>
+    </div>
+</div>

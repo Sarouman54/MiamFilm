@@ -1,1 +1,50 @@
-<p>comment-list works!</p>
+<!-- Commentaire film -->
+<!--<button routerLink="/comment/comment-item" class="border-2 border-black min-w-96 rounded-xl mt-5 p-4 flex relative">
+    <div class="flex flex-col items-center w-40">
+        <img src="../../assets/img/user-icon.png" alt="Image" class="w-5/12" />
+        <p class="font-roboto text-sm max-xl:text-sm">Auteur :</p>
+        <p class="font-roboto text-sm max-xl:text-sm">Namiou</p>
+        <div class="flex mt-2">
+            <p class="mr-1 font-roboto text-xs">Date:</p>
+            <p class="font-roboto text-xs">11/02/2002</p>
+        </div>
+    </div>
+    <div class="relative flex-grow ml-2 text-left">
+        <h3 class="font-roboto text-xl max-xl:text-lg">Mon disney préféré !!!</h3>
+        <div id="note"
+            class="absolute -top-3 -right-3 bg-[#A9B2AE] rounded-full h-12 w-12 max-xl:w-10 max-xl:h-10 flex justify-center items-center">
+            <p class="text-black font-roboto text-xl max-xl:text-lg">9</p>
+        </div>
+        <p class="font-roboto text-base max-xl:text-sm">L'animation est vraiment au top. J'espère qu'il y aura
+            une suite
+            !!</p>
+    </div>
+</button>-->
+
+
+<!-- Commentaire recette -->
+<div class="border-2 border-black min-w-96 rounded-xl mt-5 p-4 flex relative">
+    <div class="w-40 flex flex-col items-center">
+        <img src="../../assets/img/user-icon.png" alt="Image" class="w-5/12" />
+        <p class="font-roboto text-sm max-xl:text-sm">Auteur :</p>
+        <p class="font-roboto text-sm max-xl:text-sm">Namiou</p>
+        <div class="flex mt-2">
+            <p class="mr-1 font-roboto text-xs">Date:</p>
+            <p class="font-roboto text-xs">11/02/2002</p>
+        </div>
+    </div>
+    <div class="relative flex-grow ml-2 text-left">
+        <h3 class="font-roboto text-xl max-xl:text-lg flex-grow">Mon désert préféré !!!</h3>
+        <div class="ml-auto">
+            <p-rating [(ngModel)]="value" stars="5">
+                <ng-template pTemplate="onicon">
+                    <img src="../../assets/img/ratingcolor.png" class="w-6 h-6 max-xl:w-6 max-xl:h-6" />
+                </ng-template>
+                <ng-template pTemplate="officon">
+                    <img src="../../assets/img/rating.png" class="w-6 h-6 max-xl:w-6 max-xl:h-6" />
+                </ng-template>
+            </p-rating>
+        </div>
+        <p class="font-roboto text-base max-xl:text-sm">Vraiment trop bon !!</p>
+    </div>
+</div>

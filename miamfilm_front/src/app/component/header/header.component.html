@@ -1,30 +1,31 @@
-<div class="bg-[#FFD438] w-screen h-24">
+<div class="bg-[#FFD438] w-full h-24">
   <div class="flex space-between h-full w-full">
 
     <!-- Logo -->
-    <div class="flex w-60"> 
+    <div class="flex w-60 max-xl:w-40">
       <div class="mx-auto my-auto">
-        <a routerLink="/home" class="text-[#671321] cursor-pointer text-4xl mx-auto font-bold">MiamFilm</a>
+        <a routerLink="/home"
+          class="text-[#671321] cursor-pointer text-4xl max-xl:text-2xl mx-auto font-bold">MiamFilm</a>
       </div>
     </div>
 
     <!-- Navigation -->
     <div class=" flex grow justify-center">
-      <div class="my-auto px-8">
-
+      <div class="my-auto px-8 max-xl:px-4">
         <a routerLink="/home"
-          class="text-black cursor-pointer text-2xl font-roboto rounded-md px-2 py-2 hover:bg-[#671321] hover:text-[#FFD438]">
+          class="text-black cursor-pointer text-2xl max-xl:text-lg font-roboto rounded-md px-2 py-2 hover:bg-[#671321] hover:text-[#FFD438]">
           Accueil
         </a>
-
       </div>
-      <div class="my-auto px-8">
 
-        <button id="dropdownHoverButton1" data-dropdown-toggle="dropdownHover1" data-dropdown-delay="050"
+
+      <div class="my-auto px-8 max-xl:px-4">
+        <button id=" dropdownHoverButton1" data-dropdown-toggle="dropdownHover1" data-dropdown-delay="050"
           data-dropdown-trigger="hover"
-          class="text-black text-2xl font-roboto rounded-md px-2 py-2 hover:bg-[#671321] hover:text-[#FFD438]"
+          class="flex items-center text-black text-2xl max-xl:text-lg font-roboto rounded-md px-2 py-2 hover:bg-[#671321] hover:text-[#FFD438]"
           type="button">
-          Films
+          <span>Films</span>
+          <img src="../../assets/img/arrow.png" alt="Image" class="w-3 ml-1" />
         </button>
 
         <div id="dropdownHover1"
@@ -42,14 +43,15 @@
           </ul>
         </div>
 
-      </div>
-      <div class="my-auto px-8">
 
+      </div>
+      <div class="my-auto px-8 max-xl:px-4">
         <button id="dropdownHoverButton2" data-dropdown-toggle="dropdownHover2" data-dropdown-delay="050"
           data-dropdown-trigger="hover"
-          class="text-black text-2xl font-roboto rounded-md px-2 py-2 hover:bg-[#671321] hover:text-[#FFD438]"
+          class="flex items-center text-black text-2xl max-xl:text-lg font-roboto rounded-md px-2 py-2 hover:bg-[#671321] hover:text-[#FFD438]"
           type="button">
           Séries
+          <img src="../../assets/img/arrow.png" alt="Image" class="w-3 ml-1" />
         </button>
 
         <div id="dropdownHover2"
@@ -69,17 +71,16 @@
             </li>
           </ul>
         </div>
-
-
-
       </div>
-      <div class="my-auto px-8">
 
+
+      <div class="my-auto px-8 max-xl:px-4">
         <button id="dropdownHoverButton3" data-dropdown-toggle="dropdownHover3" data-dropdown-delay="050"
           data-dropdown-trigger="hover"
-          class="text-black text-2xl font-roboto rounded-md px-2 py-2 hover:bg-[#671321] hover:text-[#FFD438]"
+          class="flex items-center text-black text-2xl max-xl:text-lg font-roboto rounded-md px-2 py-2 hover:bg-[#671321] hover:text-[#FFD438]"
           type="button">
           Animes/Mangas
+          <img src="../../assets/img/arrow.png" alt="Image" class="w-3 ml-1" />
         </button>
 
         <div id="dropdownHover3"
@@ -98,16 +99,16 @@
             </li>
           </ul>
         </div>
-
-
       </div>
-      <div class="my-auto px-8">
 
+
+      <div class="my-auto px-8 max-xl:px-4">
         <button id="dropdownHoverButton4" data-dropdown-toggle="dropdownHover4" data-dropdown-delay="050"
           data-dropdown-trigger="hover"
-          class="text-black text-2xl font-roboto rounded-md px-2 py-2 hover:bg-[#671321] hover:text-[#FFD438]"
+          class="flex items-center text-black text-2xl max-xl:text-lg font-roboto rounded-md px-2 py-2 hover:bg-[#671321] hover:text-[#FFD438]"
           type="button">
           Recettes
+          <img src="../../assets/img/arrow.png" alt="Image" class="w-3 ml-1" />
         </button>
 
         <div id="dropdownHover4"
@@ -126,35 +127,44 @@
             </li>
           </ul>
         </div>
-
-
       </div>
     </div>
 
     <!-- Bouton profile -->
-    <div class="flex-1 flex justify-end">
-      <!--<div class="mr-52">
-          <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
-                  class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                  aria-expanded="false" aria-haspopup="true" type="button">
-            <span class="absolute -inset-1.5"></span>
-            <span class="sr-only">Open user menu</span>
-            <img class="h-12 w-12 rounded-full bg-gray-400" src="../../assets/img/user-icon.png" alt="user-icon">
-          </button>
-        </div>-->
+    <div class=" flex justify-end">
+      <!--<div class="mr-14 max-xl:mr-16 my-auto">
+        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+          class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+          aria-expanded="false" aria-haspopup="true" type="button">
+          <span class="absolute -inset-1.5"></span>
+          <span class="sr-only">Open user menu</span>
+          <img class="h-12 w-12 rounded-full bg-[#671321]" src="../../assets/img/user-icon.png" alt="user-icon">
+        </button>
+        <div id="dropdown" class="z-10 hidden bg-[#A9B2AE] divide-y divide-gray-100 rounded-lg shadow w-32">
+          <ul class="py-2 text-sm text-gray-700 " aria-labelledby="dropdownDefaultButton">
+            <li>
+              <a routerLink="/profile"
+                class="block px-4 max-xl:px-2 py-2 max-xl:py-1 hover:bg-[#031826] hover:text-white">Profile</a>
+            </li>
+            <li>
+              <a routerLink="/auth/sign-out"
+                class="block px-4 max-xl:px-2 py-2 max-xl:py-1 hover:bg-[#031826] hover:text-white">Déconnexion</a>
+            </li>
+          </ul>
+        </div>
+      </div>-->
       <div class="flex mr-8 my-auto">
         <ng-container *ngIf="isTokenValid; else onlinedata">
           <button (click)="onSignOut()"
-          class="text-black hover:bg-[#671321] hover:text-[#FFD438] rounded-md px-2 py-2 text-xl font-roboto">Se déconnecter</button>
+          class="text-black hover:bg-[#671321] hover:text-[#FFD438] rounded-md px-2 py-2 text-xl max-xl:text-base font-roboto">Se déconnecter</button>
         </ng-container>
         <ng-template #onlinedata>
           <a routerLink="/auth/login"
-          class="text-black hover:bg-[#671321] hover:text-[#FFD438] rounded-md px-2 py-2 text-xl font-roboto">Connexion</a>
-          <a routerLink="/auth/register"
-          class="text-black hover:bg-[#671321] hover:text-[#FFD438] rounded-md px-2 py-2 text-xl font-roboto">Inscription</a>
+          class="text-black hover:bg-[#671321] hover:text-[#FFD438] rounded-md px-2 py-2 text-xl max-xl:text-base font-roboto">Connexion</a>
+        <a routerLink="/auth/register"
+          class="text-black hover:bg-[#671321] hover:text-[#FFD438] rounded-md px-2 py-2 text-xl  max-xl:text-base font-roboto">Inscription</a>
         </ng-template>
       </div>
     </div>
-
   </div>
 </div>

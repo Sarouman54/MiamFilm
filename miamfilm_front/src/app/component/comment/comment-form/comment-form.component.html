@@ -1,1 +1,84 @@
-<p>comment-form works!</p>
+<form>
+    <!--<div class="relative rounded-3xl bg-[#FFD438] min-w-min forme1 z-10 w-1/4 h-3/4 mt-20 mx-auto p-3">
+        <h1 class="text-black font-roboto text-center mt-8 mb-10 text-5xl">Ajout d'une critique</h1>
+        <div class="flex">
+            <div class="inline-block relative w-64 mb-5">
+                <label for="game" class="block mb-2 text-sm font-medium font-roboto text-black">Film :</label>
+                <select id="game" name="game"
+                    class="block text-black appearance-none w-full font-roboto bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                </select>
+            </div>
+            <div class="mb-5 ml-5">
+                <label for="note" class="block mb-2 text-sm font-medium font-roboto text-black">Note :</label>
+                <input type="number" id="note" name="note" min="0" max="10"
+                    class="bg-gray-50 border border-gray-300 font-roboto text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-14 p-2.5">
+            </div>
+        </div>
+        <div class="mb-5">
+            <label for="critique" class="block mb-2 text-sm font-medium font-roboto text-black">Texte :</label>
+            <div>
+                <label class="sr-only font-roboto" for="critique">Critic</label>
+                <textarea id="critique" name="critique"
+                    class="w-full rounded-lg border-gray-200 font-roboto p-3 text-gray-900 text-sm"
+                    placeholder="Le meilleur film du monde !!" rows="8"></textarea>
+            </div>
+        </div>
+        <div class="min-w-min">
+            <div class="flex">
+                <button type="submit" routerLink="/video/video-item"
+                    class="text-white font-roboto mr-4 bg-[#031826] hover:bg-[#083C5E] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-40 px-5 py-2.5 mx-auto text-center ">
+                    Valider
+                </button>
+                <button routerLink="/video/video-item"
+                    class="text-white font-roboto bg-[#868689] hover:bg-[#A9B2AE] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-40 px-5 py-2.5 mr-auto text-center ">
+                    Retour
+                </button>
+            </div>
+        </div>
+    </div>-->
+    <div class="relative rounded-3xl bg-[#FFD438] min-w-min forme1 z-10 w-1/3 h-3/4 mt-20 mx-auto p-3">
+        <h1 class="text-black font-roboto text-center mt-8 mb-10 text-5xl">Ajout d'un commentaire</h1>
+        <div class="flex">
+            <div class="inline-block relative w-64 mb-5">
+                <label for="game" class="block mb-2 text-sm font-medium font-roboto text-black">Recette :</label>
+                <select id="game" name="game"
+                    class="block text-black appearance-none w-full font-roboto bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                </select>
+            </div>
+            <div class="mb-5 ml-5">
+                <label for="note" class="block mb-2 text-sm font-medium font-roboto text-black">Note :</label>
+                <div>
+                    <p-rating [(ngModel)]="value" stars="5">
+                        <ng-template pTemplate="onicon">
+                            <img src="../../assets/img/ratingcolor.png" class="w-12 h-12 max-xl:w-10 max-xl:h-10" />
+                        </ng-template>
+                        <ng-template pTemplate="officon">
+                            <img src="../../assets/img/rating.png" class="w-12 h-12 max-xl:w-10 max-xl:h-10" />
+                        </ng-template>
+                    </p-rating>
+                </div>
+            </div>
+        </div>
+        <div class="mb-5">
+            <label for="critique" class="block mb-2 text-sm font-medium font-roboto text-black">Texte :</label>
+            <div>
+                <label class="sr-only font-roboto" for="critique">Recette</label>
+                <textarea id="critique" name="critique"
+                    class="w-full rounded-lg border-gray-200 font-roboto p-3 text-gray-900 text-sm"
+                    placeholder="Le meilleur dessert du monde !!" rows="8"></textarea>
+            </div>
+        </div>
+        <div class="min-w-min">
+            <div class="flex">
+                <button type="submit" routerLink="/recipe/recipe-item"
+                    class="text-white font-roboto mr-4 bg-[#031826] hover:bg-[#083C5E] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-40 px-5 py-2.5 mx-auto text-center ">
+                    Valider
+                </button>
+                <button routerLink="/recipe/recipe-item"
+                    class="text-white font-roboto bg-[#868689] hover:bg-[#A9B2AE] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-40 px-5 py-2.5 mr-auto text-center ">
+                    Retour
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

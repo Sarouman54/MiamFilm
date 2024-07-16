@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './comment-form.component.scss'
 })
 export class CommentFormComponent {
+  value: number = 0;
 
 }

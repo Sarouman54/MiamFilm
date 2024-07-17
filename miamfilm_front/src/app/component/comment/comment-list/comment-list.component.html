@@ -1,7 +1,6 @@
 <div *ngIf="commentList">
     <ul>
       <li *ngFor="let comment of commentList">
-        <ng-container *ngIf="comment.id_video === idVideo;">
             <button routerLink="/comment/comment-item" class="border-2 border-black min-w-96 rounded-xl mt-5 p-4 flex relative">
 
                 <div class="flex flex-col items-center w-40">
@@ -27,7 +26,6 @@
                 </div>
 
             </button>
-        </ng-container>
         
       </li>
     </ul>

@@ -57,8 +57,10 @@ export class CommentFormComponent implements OnInit {
         const {description, title, preparation_time, ingredients, difficult} = this.recipeForm.value;
         console.log(description, title, preparation_time, ingredients, difficult)
         this.recipeService.addRecipe(token, title, 4, preparation_time, ingredients, "1", description, difficult, this.value).subscribe(response => {
-          console.log(response)
-        })
+          this.router.navigate(['/']).then(() => {
+            window.location.reload();
+          });
+         })
       }
 
       if(this.idVideo && this.type == 'critic'){

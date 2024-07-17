@@ -119,12 +119,12 @@
         </div>
     </div>
     <div>
+        
+    <h1 class="font-roboto text-3xl">Critique - Commentaires :</h1>
     <div class="flex items-center mt-10">
-        <h1 class="font-roboto text-3xl">Critique du film :</h1>
-        <a [routerLink]="'/comment/comment-form/' + c + '/' + video.id" class="hover:bg-[#FFD438] rounded-md ml-auto ">
         <div class="overflow-x-auto">
             <div class="flex space-x-2">
-                <button routerLink="/comment/comment-item" class="border-2 border-black min-w-96 rounded-xl mt-5 p-4 flex relative ">
+                <!-- <button routerLink="/comment/comment-item" class="border-2 border-black min-w-96 rounded-xl mt-5 p-4 flex relative ">
                 
                     <div class="flex flex-col items-center w-40">
                         <img src="../../assets/img/user-icon.png" alt="Image" class="w-5/12" />
@@ -145,6 +145,10 @@
                             une suite
                             !!</p>
                     </div>
-                </button>
+                </button> -->
+                <a [routerLink]="'/comment/comment-form/' + c + '/' + video.id" class="hover:bg-[#FFD438] rounded-md ml-auto ">
+                    <img class="w-7" src="../../assets/img/change.png" alt="Un petit crayon" />
+                </a>
+                <app-comment-list></app-comment-list>
             </div>
         </div>

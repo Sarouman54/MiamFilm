@@ -33,7 +33,7 @@ export class CommentListComponent implements OnInit {
       
     });
     // this.commentService.getAllComment().subscribe((response: CommentModel[]) => {
-    this.commentService.getCommentsByVideoId(this.idVideo).subscribe((response: CommentModel[]) => {
+    this.commentService.getAllComment().subscribe((response: CommentModel[]) => {
         this.commentList = response
       },
       error => {

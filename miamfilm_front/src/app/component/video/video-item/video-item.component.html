@@ -19,6 +19,9 @@
         <div id="recette" class="w-1/4">
             <div class="mx-auto border-2 border-black rounded-xl p-4 max-h-screen">
                 <h1 class="text-3xl max-xl:text-2xl font-roboto mb-4 text-center">Recettes du film</h1>
+                <a [routerLink]="'/comment/comment-form/' + r + '/' + video.id" class="hover:bg-[#FFD438] rounded-md ml-auto ">
+                    <img class="w-7" src="../../assets/img/change.png" alt="Un petit crayon" />
+                </a>
                 <div class="overflow-y-scroll max-h-72">
                     <button routerLink="/recipe/recipe-item" class="bg-[#FFFCF9]  rounded-xl p-2 mb-4">
                         <div>

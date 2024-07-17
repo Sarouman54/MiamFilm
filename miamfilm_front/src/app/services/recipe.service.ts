@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class VideoService {
+export class RecipeService {
 
   constructor(private http: HttpClient) {}
 

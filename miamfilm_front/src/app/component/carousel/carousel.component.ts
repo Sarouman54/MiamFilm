@@ -14,7 +14,7 @@ export class CarouselComponent implements OnInit {
 
   responsiveOptions: any[] = [
     {
-      breakpoint: '1280px',
+      breakpoint: '1600px',
       numVisible: 4,
       numScroll: 1
     },

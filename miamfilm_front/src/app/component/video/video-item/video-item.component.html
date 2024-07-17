@@ -118,13 +118,13 @@
     <div>
         <div class="flex items-center mt-10">
             <h1 class="font-roboto text-3xl">Critiques :</h1>
-            <a routerLink="/comment/comment-form/{{c}}/{{video.id}} " class="hover:bg-[#FFD438] rounded-md ml-auto ">
+            <a [routerLink]="'/comment/comment-form/' + c + '/' + video.id" class="hover:bg-[#FFD438] rounded-md ml-auto ">
                 <img class="w-7" src="../../assets/img/change.png" alt="Un petit crayon" />
             </a>
         </div>
         <div class="overflow-x-auto">
             <div class="flex space-x-2">
-                <app-comment-list></app-comment-list>
+                <app-comment-list [idVideo]="video.id"></app-comment-list>
                 
                 
                 

@@ -15,7 +15,7 @@ module.exports = (instance) => {
         allowNull: true,
       },
       description: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
       created_at: {

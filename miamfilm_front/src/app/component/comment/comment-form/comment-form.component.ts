@@ -44,12 +44,6 @@ export class CommentFormComponent implements OnInit {
        console.log(this.user)
       });
 
-      this.route.params.subscribe(params => {
-        this.type = params['type'];
-        this.idVideo = params['id'];
-        console.log('Paramètres récupérés:', this.type, this.idVideo);
-      });
-
       if(this.idVideo){
         this.commentService.addComment(token, title, description, this.idVideo, userId , id_recipe).subscribe(response => {
           this.router.navigate(['/']).then(() => {
@@ -63,6 +57,10 @@ export class CommentFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.route.params.subscribe(params => {
+      this.type = params['type'];
+      this.idVideo = params['id'];
+      console.log('Paramètres récupérés:', this.type, this.idVideo);
+    });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommentService } from '../../../services/comment.service';
 import { CommentModel } from '../../../models/comment.model';
 import { AuthService } from '../../../services/auth.service';
@@ -15,8 +15,10 @@ export class CommentListComponent implements OnInit {
   value: number = 2;
   commentList: CommentModel [] = [];
   users: UserModel [] = [];
+  @Input() idVideo: number;
 
   constructor(private usersService: UsersService, private authService: AuthService, private router: Router, private commentService: CommentService){
+    this.idVideo = 0;
   }
 
   ngOnInit(): void{

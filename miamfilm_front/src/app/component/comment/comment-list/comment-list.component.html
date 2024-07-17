@@ -3,6 +3,7 @@
       <li *ngFor="let comment of commentList">
         <ng-container *ngIf="comment.id_video === idVideo;">
             <button routerLink="/comment/comment-item" class="border-2 border-black min-w-96 rounded-xl mt-5 p-4 flex relative">
+
                 <div class="flex flex-col items-center w-40">
                     <img src="../../assets/img/user-icon.png" alt="Image" class="w-5/12" />
                     <p class="font-roboto text-sm max-xl:text-sm">Auteur :</p>
@@ -24,9 +25,10 @@
                     </div>
                     <p class="font-roboto text-base max-xl:text-sm">{{ comment.description }}</p>
                 </div>
+
             </button>
         </ng-container>
-       
+        
       </li>
     </ul>
   </div>
@@ -35,7 +37,7 @@
   </div>
 
 <!-- Commentaire film -->
-<!-- <button routerLink="/comment/comment-item" class="border-2 border-black min-w-96 rounded-xl mt-5 p-4 flex relative">
+<!-- <button class="border-2 border-black min-w-96 rounded-xl mt-5 p-4 flex relative">
     <div class="flex flex-col items-center w-40">
         <img src="../../assets/img/user-icon.png" alt="Image" class="w-5/12" />
         <p class="font-roboto text-sm max-xl:text-sm">Auteur :</p>

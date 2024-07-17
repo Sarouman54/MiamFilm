@@ -26,14 +26,15 @@
             </div>
             <div class="min-w-min">
                 <div class="flex">
-                    <button type="submit"
-                        class="text-white font-roboto mr-4 bg-[#671321] hover:bg-[#450D16] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-40 px-5 py-2.5 mx-auto text-center ">
-                        Valider
-                    </button>
-                    <button routerLink="/video/video-item/{{idVideo}}"
-                        class="text-white font-roboto bg-[#868689] hover:bg-[#A9B2AE] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-40 px-5 py-2.5 mr-auto text-center ">
-                        Retour
-                    </button>
+                    <button type="submit" routerLink="/video/video-item"
+                    class="text-white font-roboto mr-4 bg-[#671321] hover:bg-[#450D16] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-40 px-5 py-2.5 mx-auto text-center ">
+                    Valider
+                </button>
+                <button routerLink="/video/video-item/{{idVideo}}"
+                    class="text-white font-roboto bg-[#868689] hover:bg-[#A9B2AE] focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-40 px-5 py-2.5 mr-auto text-center ">
+                    Retour
+                </button>
+     
                 </div>
             </div>
         </div>
@@ -46,6 +47,7 @@
         <div class="relative rounded-xl bg-[#FFD438] min-w-min forme1 z-10 w-1/3 h-3/4 mt-20 mx-auto p-3">
             <h1 class="text-black font-roboto text-center mt-8 mb-10 text-5xl">Ajouter une recette</h1>
             <div class="flex">
+
                 <div class="inline-block relative w-64 mb-5">
                     <label for="title" class="block mb-2 text-sm font-medium font-roboto text-black">Titre :</label>
                     <input id="title" formControlName="title"
@@ -66,6 +68,7 @@
                         </p-rating>
                     </div>
                 </div>
+
             </div>
             <div class="flex space-x-4">
                 <div class="mb-5 w-1/4 max-xl:w-1/2">

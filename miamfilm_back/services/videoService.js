@@ -1,5 +1,5 @@
 const { video } = require('../models/indexModel');
-const { addTag } = require('../services/tagService');
+const { getTag, getIdTagByName, getTagByName, addTag } = require('../services/tagService');
 const api = require('./fetchApiService');
 
 exports.getVideo = async () => {
@@ -43,7 +43,7 @@ exports.getVideoByTitle = async (title) => {
 
 }
 
-exports.addVideo = async (title) => {
+exports.addVideo = async (title, idUser) => {
 
     var movieItems = await api.apiGetMovieByTitle('&query='+title+'&language=fr-FR');
     var serieItems = await api.apiGetSerieByTitle('&query='+title+'&language=fr-FR');
@@ -80,12 +80,17 @@ exports.addVideo = async (title) => {
         var detailItems = await api.apiGetDetailByMovie(idMovie, "&language=fr-FR");
         detailItems.genres.forEach(item => {
             genres = genres + item.name + ',';
-            addTag(item.name, "#ff0000");
+            getIdTagByName(item.name).then(id => {
+                if(!id) {
+                    addTag(item.name, "#ff0000");
+                }
+            });
         });
 
         var runtime = detailItems.runtime;
         var poster = movieItems.results[0].poster_path;
         var boxOffice = detailItems.revenue; // En Millions
+        var average = movieItems.results[0].vote_average;
     // } else if(serieItems.results[0] && serieItems.results[0].title.toLowerCase() == title.toLowerCase()) {
     //     var idSerie = serieItems.results[0].id;
 
@@ -138,8 +143,10 @@ exports.addVideo = async (title) => {
             runtime: runtime,
             poster: poster,
             box_office: boxOffice,
+            average: average,
             created_at: today,
             updated_at: today,
+            id_user: idUser,
         });
     } catch (error) {
         console.error(error);
@@ -148,7 +155,7 @@ exports.addVideo = async (title) => {
 
 }
 
-exports.updateVideoById = async (id, title, released, director, actors,synopsis, genres, type, runtime, poster, boxOffice) => {
+exports.updateVideoById = async (id, title, released, director, actors,synopsis, genres, type, runtime, poster, boxOffice, average) => {
 
     try {
         var today = new Date();
@@ -164,6 +171,7 @@ exports.updateVideoById = async (id, title, released, director, actors,synopsis,
                 runtime: runtime,
                 poster: poster,
                 box_office: boxOffice,
+                average: average,
                 updated_at: today,
             }, 
             {where: {id: id}}

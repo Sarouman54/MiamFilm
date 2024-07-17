@@ -2,18 +2,18 @@
     <div class="flex space-x-4">
         <div id="film" class="flex ml-0 w-3/4 p-4 space-x-5 border-2 border-black rounded-xl">
             <div id="image" class="image-item-content min-w-screen my-auto">
-                <img src="https://image.tmdb.org/t/p/original/{{video.poster}}"alt="Image" class="rounded-xl" />
+                <img src="https://image.tmdb.org/t/p/original/{{video.poster}}" alt="Image" class="rounded-xl" />
             </div>
             <div>
                 <div class="flex">
-                    <h1 class="font-roboto text-3xl">{{ video.title }}</h1>
+                    <h1 class="font-roboto text-3xl">{{video.title}}</h1>
                     <div id="note"
                         class="flex bg-[#A9B2AE] rounded-full h-14 w-14 justify-center items-center ml-auto top-3 right-3">
-                        <p class="text-black font-roboto text-2xl">{{notes}}</p>
+                        <p class="text-black font-roboto text-2xl">{{video.average | number: '1.0-1'}}</p>
                     </div>
                 </div>
-                <p class="font-roboto text-xl mt-5 ">{{ video.synopsis }}
-                </p>
+                <p class="font-roboto text-xl mt-5 ">{{video.synopsis}}</p>
+
             </div>
         </div>
         <div id="recette" class="w-1/4">
@@ -120,8 +120,40 @@
     </div>
     <div>
         <div class="flex items-center mt-10">
-            <h1 class="font-roboto text-3xl">Critiques :</h1>
+            <h1 class="font-roboto text-3xl">Critique du film :</h1>
             <a [routerLink]="'/comment/comment-form/' + c + '/' + video.id" class="hover:bg-[#FFD438] rounded-md ml-auto ">
+        </div>
+        <div class="overflow-x-auto">
+            <div class="flex space-x-2">
+                <button routerLink="/comment/comment-item" class="border-2 border-black min-w-96 rounded-xl mt-5 p-4 flex relative ">
+                  
+                    <div class="flex flex-col items-center w-40">
+                        <img src="../../assets/img/user-icon.png" alt="Image" class="w-5/12" />
+                        <p class="font-roboto text-sm max-xl:text-sm">Auteur :</p>
+                        <p class="font-roboto text-sm max-xl:text-sm">Namiou</p>
+                        <div class="flex mt-2">
+                            <p class="mr-1 font-roboto text-xs">Date:</p>
+                            <p class="font-roboto text-xs">11/02/2002</p>
+                        </div>
+                    </div>
+                    <div class="relative flex-grow ml-2 text-left">
+                        <h3 class="font-roboto text-xl max-xl:text-lg">Mon disney préféré !!!</h3>
+                        <div id="note"
+                            class="absolute -top-3 -right-3 bg-[#A9B2AE] rounded-full h-12 w-12 max-xl:w-10 max-xl:h-10 flex justify-center items-center">
+                            <p class="text-black font-roboto text-xl max-xl:text-lg">9</p>
+                        </div>
+                        <p class="font-roboto text-base max-xl:text-sm">L'animation est vraiment au top. J'espère qu'il y aura
+                            une suite
+                            !!</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="flex items-center mt-10">
+            <h1 class="font-roboto text-3xl">Commentaires :</h1>
+            <a routerLink="/comment/comment-form" class="hover:bg-[#FFD438] rounded-md ml-auto ">
                 <img class="w-7" src="../../assets/img/change.png" alt="Un petit crayon" />
             </a>
         </div>
@@ -129,8 +161,7 @@
             <div class="flex space-x-2">
                 <app-comment-list [idVideo]="video.id"></app-comment-list>
                 
-                
-                
+       
 
             </div>
         </div>

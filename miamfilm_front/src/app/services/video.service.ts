@@ -18,6 +18,7 @@ export class VideoService {
 
   getVideoById(_id: number): Observable<any> {
     return this.http.get<{data: any}>(`${environment.apiUrl}/video/` + _id)
+
     .pipe(map(response => response.data));
   }
 
@@ -30,9 +31,9 @@ export class VideoService {
     return this.http.post<any>(`${environment.apiUrl}/video`, {title}, { headers });
   }
 
-  updateVideoById(Token: string, _id: string, title: string, released: Date, director: string, actors: string, synopsis: Text, genre: string, type: string, runtime: number, poster: string, box_office: number): Observable<any> {
+  updateVideoById(Token: string, _id: string, title: string, released: Date, director: string, actors: string, synopsis: Text, genre: string, type: string, runtime: number, poster: string, box_office: number, average: number): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${Token}`);
-    return this.http.put<any>(`${environment.apiUrl}/video/` + _id, {title, released, director, actors, synopsis, genre, type, runtime, poster, box_office}, { headers });
+    return this.http.put<any>(`${environment.apiUrl}/video/` + _id, {title, released, director, actors, synopsis, genre, type, runtime, poster, box_office, average}, { headers });
   }
 
   deleteRoleById(Token: string, _id: string): Observable<any> {

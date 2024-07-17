@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VideoService } from '../../services/video.service';
 import { VideoModel } from '../../models/video.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carousel',
@@ -9,13 +10,11 @@ import { VideoModel } from '../../models/video.model';
 })
 export class CarouselComponent implements OnInit {
 
-  images: string[] = [];
-  notes: string = '9';
   videoList: VideoModel[] = [];
 
   responsiveOptions: any[] = [
     {
-      breakpoint: '1280px',
+      breakpoint: '1600px',
       numVisible: 4,
       numScroll: 1
     },
@@ -43,37 +42,16 @@ export class CarouselComponent implements OnInit {
 
   constructor(
     private videoService: VideoService,
+    private router: Router
   ) { }
 
 
   ngOnInit(): void {
     this.videoService.getAllVideo().subscribe((response: VideoModel[]) => {
       this.videoList = response
-      console.log(this.videoList);
     },
-      error => {
-        console.error('Erreur lors de la récupération des commentaires :', error);
-      })
-
-    this.images = [
-      'assets/img/frozen1.jpg',
-      'assets/img/frozen2.jpg',
-      'assets/img/frozen3.jpg',
-      'assets/img/ariel.jpg',
-      'assets/img/insideout2.jpg',
-      'assets/img/raiponse.jpg',
-      'assets/img/frozen1.jpg',
-      'assets/img/frozen2.jpg',
-      'assets/img/frozen3.jpg',
-      'assets/img/ariel.jpg',
-      'assets/img/insideout2.jpg',
-      'assets/img/raiponse.jpg',
-      'assets/img/frozen1.jpg',
-      'assets/img/frozen2.jpg',
-      'assets/img/frozen3.jpg',
-      'assets/img/ariel.jpg',
-      'assets/img/insideout2.jpg',
-      'assets/img/raiponse.jpg'
-    ];
+    error => {
+      console.error('Erreur lors de la récupération des vidéos :', error);
+    })
   }
 }

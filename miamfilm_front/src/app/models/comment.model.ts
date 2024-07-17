@@ -1,14 +1,16 @@
 export class CommentModel {
     id?: number;
-    description?: Text;
+    title?: String;
+    description?: String;
     created_at?: Date;
     updated_at?: Date;
     id_video?: number;
     id_user?: number;
     id_recipe?: number;
 
-    constructor( id: number, description: Text, created_at: Date, updated_at: Date, id_video: number, id_user: number, id_recipe: number){
+    constructor( id: number, title: String,  description: String, created_at: Date, updated_at: Date, id_video: number, id_user: number, id_recipe: number){
         this.id = id,
+        this.title = title,
         this.description = description,
         this.id_video = id_video,
         this.id_user = id_user,

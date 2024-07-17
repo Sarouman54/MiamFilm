@@ -42,7 +42,7 @@ exports.getRecipeByTitle = async (title) => {
 }
 
 
-exports.addRecipe = async (idUser, title, persons, preparationTime, ingredients, picture, description, difficulty, note) => {
+exports.addRecipe = async (title, persons, preparationTime, ingredients, picture, description, difficulty, note, idUser) => {
     console.log("ok")
     try {
         var today = new Date(); // Utiliser toLocaleString('fr-FR') pour afficher au fuseau horaire français

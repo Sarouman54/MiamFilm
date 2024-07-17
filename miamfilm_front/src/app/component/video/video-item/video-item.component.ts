@@ -14,6 +14,7 @@ import { VideoModel } from '../../../models/video.model';
 })
 export class VideoItemComponent implements OnInit {
   private route = inject(ActivatedRoute);
+  idVideo: number = 0;
   images!: string[];
   value: number = 2;
   notes: string = '9';
@@ -27,25 +28,18 @@ export class VideoItemComponent implements OnInit {
     private videoService: VideoService, private router: ActivatedRoute
   ) { }
 
-  ngOnInit() {
-    this.router.paramMap.pipe(
-      map(params => {
-        const idParam = params.get('id');
-        return idParam ? +idParam : null; // Convertit en nombre si non null
-      })
-    ).subscribe(id => {
-      this.id = id;
-      console.log('ID récupéré:', this.id);
-    });
-    if(this.id != null){
-      this.videoService.getVideoById(this.id).subscribe(response => {
-        this.video = response
-        console.log(this.video);
-      },
-        error => {
-          console.error('Erreur lors de la récupération de la vidéo :', error);
-        })
-    }
+  ngOnInit(): void {
+
+    this.route.params.subscribe(params => {
+      this.idVideo = params['id'];
+    })
+
+    this.videoService.getVideoById(this.idVideo).subscribe((response: VideoModel) => {
+      this.video = response
+    },
+    error => {
+      console.error('Erreur lors de la récupération de la vidéo :', error);
+    })
 
     this.images = [
       'assets/img/fraisier.jpg',

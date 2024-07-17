@@ -17,7 +17,6 @@ export class CommentListComponent implements OnInit {
   value: number = 2;
   commentList: CommentModel [] = [];
   users: UserModel [] = [];
-  @Input() idVideo: number;
 
   constructor(private usersService: UsersService, private authService: AuthService, private router: Router, private commentService: CommentService){
     this.idVideo = 0;

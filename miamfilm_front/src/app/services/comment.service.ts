@@ -11,14 +11,19 @@ import { jwtDecode } from "jwt-decode";
   export class CommentService {
     constructor(private http: HttpClient) {}
 
-    addComment(Token: string, title: String, description: String, id_video: number, id_user: number, id_recipe: number): Observable<any> {
-        console.log("ici 1 " + description, id_video, id_user , id_recipe)
+    addComment(Token: string, title: string, description: Text, id_video: number, id_user: number, id_recipe: number): Observable<any> {
+        // console.log("ici 1 " + title + description, id_video, id_user, id_recipe)
         const headers = new HttpHeaders().set('Authorization', `Bearer ${Token}`);
-        return this.http.post<any>(`${environment.apiUrl}/comment`, {title, description, id_video, id_user, id_recipe});
+        return this.http.post<any>(`${environment.apiUrl}/comment`, { title, description, id_video, id_user, id_recipe}, {headers});
       }
 
     getAllComment(): Observable<CommentModel[]> {
       return this.http.get<{ data: CommentModel[] }>(`${environment.apiUrl}/comment`)
+      .pipe(map(response => response.data));
+    }
+
+    getCommentsByVideoId(_id: number): Observable<CommentModel[]> {
+      return this.http.get<{ data: CommentModel[] }>(`${environment.apiUrl}/comment/video/` + _id)
       .pipe(map(response => response.data));
     }
   }

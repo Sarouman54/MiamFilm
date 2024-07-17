@@ -4,6 +4,7 @@ commentController = require('../controllers/commentController')
 
 router.get('/', commentController.getAllComment);
 router.get('/:id', commentController.getCommentById);
+router.get('/video/:id', commentController.getCommentByVideoId);
 // Voir pour ajouter une route récupérant tous les commentaires d'un utilisateur
 
 router.post('/', commentController.addComment);

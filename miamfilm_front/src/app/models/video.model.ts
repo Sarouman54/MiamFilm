@@ -6,6 +6,7 @@ export class VideoModel {
     released?: Date;
     director?: string;
     actors?: string;
+    synopsis?: Text;
     genre?: string;
     type?: string;
     runtime?: number;
@@ -15,12 +16,13 @@ export class VideoModel {
     created_at?: Date;
     updated_at?: Date;
 
-    constructor( id: number, title: string, released: Date, director: string, actors: string, genre: string, type: string, runtime: number, poster: string, box_office: number, average: number, created_at: Date, updated_at: Date){
+    constructor( id: number, title: string, released: Date, director: string, actors: string, synopsis: Text, genre: string, type: string, runtime: number, poster: string, box_office: number, average: number, created_at: Date, updated_at: Date){
         this.id = id,
         this.title = title,
         this.released = released,
         this.director = director,
         this.actors = actors,
+        this.synopsis = synopsis,
         this.genre = genre,
         this.type = type,
         this.runtime = runtime,

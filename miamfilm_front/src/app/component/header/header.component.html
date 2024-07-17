@@ -31,15 +31,17 @@
         <div id="dropdownHover1"
           class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow-lg shadow-[#A9B2AE] w-44 bg-[#671321]">
           <ul class="py-2 text-sm  " aria-labelledby="dropdownHoverButton1">
-            <li>
-              <a href="#" class="block px-4 py-2 text-white font-roboto hover:text-black hover:bg-[#FFD438]">Action</a>
-            </li>
-            <li>
+            <div *ngFor="let tag of tagList">
+              <li>
+                <a href="#" class="block px-4 py-2 text-white font-roboto hover:text-black hover:bg-[#FFD438]">{{tag.name}}</a>
+              </li>
+            </div>
+            <!-- <li>
               <a href="#" class="block px-4 py-2 text-white font-roboto hover:text-black hover:bg-[#FFD438]">Comédie</a>
             </li>
             <li>
               <a href="#" class="block px-4 py-2 text-white font-roboto hover:text-black hover:bg-[#FFD438]">Horreur</a>
-            </li>
+            </li> -->
           </ul>
         </div>
 
@@ -74,7 +76,7 @@
       </div>
 
 
-      <div class="my-auto px-8 max-xl:px-4">
+      <!-- <div class="my-auto px-8 max-xl:px-4">
         <button id="dropdownHoverButton3" data-dropdown-toggle="dropdownHover3" data-dropdown-delay="050"
           data-dropdown-trigger="hover"
           class="flex items-center text-black text-2xl max-xl:text-lg font-roboto rounded-md px-2 py-2 hover:bg-[#671321] hover:text-[#FFD438]"
@@ -99,7 +101,7 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> -->
 
 
       <div class="my-auto px-8 max-xl:px-4">

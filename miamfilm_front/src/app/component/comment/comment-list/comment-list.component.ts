@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommentService } from '../../../services/comment.service';
 import { CommentModel } from '../../../models/comment.model';
 import { AuthService } from '../../../services/auth.service';
@@ -12,6 +12,7 @@ import { UserModel } from '../../../models/user.model';
   styleUrl: './comment-list.component.scss'
 })
 export class CommentListComponent implements OnInit {
+  @Input() idVideo: number = 0;
   value: number = 2;
   commentList: CommentModel [] = [];
   users: UserModel [] = [];
@@ -29,7 +30,8 @@ export class CommentListComponent implements OnInit {
       console.error('Erreur lors de la récupération user :', error);
       
     });
-    this.commentService.getAllComment().subscribe((response: CommentModel[]) => {
+    // this.commentService.getAllComment().subscribe((response: CommentModel[]) => {
+    this.commentService.getCommentsByVideoId(this.idVideo).subscribe((response: CommentModel[]) => {
         this.commentList = response
       },
       error => {

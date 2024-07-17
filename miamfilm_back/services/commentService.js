@@ -26,6 +26,21 @@ exports.getCommentById = async (id) => {
 
 }
 
+exports.getCommentsByVideoId = async (idVideo) => {
+
+    try {
+        return await comment.findAll({
+            where: {
+                id_video: idVideo
+            }
+        })
+    } catch (error) {
+        console.error(error);
+        throw new Error('Error to get comment by idVideo');
+    }
+
+}
+
 exports.addComment = async (title, description, idUser, idVideo, idRecipe) => {
 
     try {

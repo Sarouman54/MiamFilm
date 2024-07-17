@@ -33,7 +33,8 @@ export class CommentFormComponent {
     const id_recipe = 1;
     if (token && this.commentForm.valid) {
       const {description} = this.commentForm.value;
-      this.commentService.addComment(token, description, id_video, id_user, id_recipe).subscribe(response => {
+      const {title} = this.commentForm.value;
+      this.commentService.addComment(token, title, description, id_video, id_user, id_recipe).subscribe(response => {
         this.router.navigate(['/']).then(() => {
           window.location.reload();
         });

@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { TagModel } from '../models/tag.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class VideoService {
+export class TagService {
 
   constructor(private http: HttpClient) {}
 
-  getAllTag(): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}/tag`);
+  getAllTag(): Observable<TagModel[]> {
+    return this.http.get<{ data: TagModel[] }>(`${environment.apiUrl}/tag`)
+    .pipe(map(response => response.data));
   }
 
   getTagById(_id: string): Observable<any> {

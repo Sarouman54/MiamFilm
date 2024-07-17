@@ -26,6 +26,25 @@ exports.getCommentById = async (req, res, next) => {
     // }
 }
 
+exports.getCommentByVideoId = async (req, res, next) => {
+    commentService.getCommentsByVideoId(req.params.id)
+        .then(comment => {
+            if(comment) {
+                res.status(200).json({ status: "success", message: "Commentaire "+req.params.id+" récupéré avec succès", data: comment});
+            } else {
+                res.status(200).json({ status: "success", message: "Commentaire "+req.params.id+" inexistant"});
+            }
+        })
+        .catch(error => res.status(404).json({ status: "fail", message: "Impossible de récupérer le commentaire "+req.params.id, error: error }));
+
+    // const comment = await commentService.getCommentById(req.params.id);
+    // if(comment) {
+    //     res.json({ data: comment });
+    // } else {
+    //     next(createError(404, "Error no comment found for this id"));
+    // }
+}
+
 exports.addComment = async (req, res, next) => {
     console.log("ici 2 " + req.body.description)
     const comment = await commentService.addComment(req.body.title, req.body.description, req.body.idVideo, req.body.idUser, req.body.idRecipe);

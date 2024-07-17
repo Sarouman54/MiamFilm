@@ -7,7 +7,7 @@ import { CommentItemComponent } from './comment-item/comment-item.component';
 import { CommentDeleteComponent } from './comment-delete/comment-delete.component';
 
 const routes: Routes = [
-    { path: 'comment-form', component: CommentFormComponent },
+    { path: 'comment-form/:type/:id', component: CommentFormComponent },
     { path: 'comment-list', component: CommentListComponent },
     { path: 'comment-item', component: CommentItemComponent },
     { path: 'comment-delete', component: CommentDeleteComponent }

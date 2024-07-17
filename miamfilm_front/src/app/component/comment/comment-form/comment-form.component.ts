@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { CommentService } from '../../../services/comment.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserModel } from '../../../models/user.model';
 import { CommentModel } from '../../../models/comment.model';
 import { UsersService } from '../../../services/users.service';
@@ -20,9 +20,12 @@ export class CommentFormComponent implements OnInit {
   message: string | null = null;
   user: UserModel [] = [];
   comment: CommentModel | null = null;
+  type: string | null = null;
+  idVideo: number | null = null;
+  
   
 
-  constructor(private fb: FormBuilder, private usersService: UsersService, private authService: AuthService, private router: Router, private commentService: CommentService) {
+  constructor(private fb: FormBuilder, private usersService: UsersService, private authService: AuthService, private router: Router, private route: ActivatedRoute, private commentService: CommentService) {
     this.commentForm = this.fb.group({
       description: ['', Validators.required],
       title: ['', Validators.required]
@@ -31,7 +34,6 @@ export class CommentFormComponent implements OnInit {
 
   onSubmit(): void {
     const token = localStorage.getItem('token');
-    const id_video = 1;
     const id_recipe = 1;
     if (token && this.commentForm.valid) {
       const {description, title} = this.commentForm.value;
@@ -41,13 +43,22 @@ export class CommentFormComponent implements OnInit {
        this.user = hope;
        console.log(this.user)
       });
-     this.commentService.addComment(token, title, description, id_video, userId , id_recipe).subscribe(response => {
-        this.router.navigate(['/']).then(() => {
-          window.location.reload();
-        });
-      }, error => {
-          alert('Ajout commentaire fail failed: ' + JSON.stringify(error.error)); // Affiche les détails de l'erreur
+
+      this.route.params.subscribe(params => {
+        this.type = params['type'];
+        this.idVideo = params['id'];
+        console.log('Paramètres récupérés:', this.type, this.idVideo);
       });
+
+      if(this.idVideo){
+        this.commentService.addComment(token, title, description, this.idVideo, userId , id_recipe).subscribe(response => {
+          this.router.navigate(['/']).then(() => {
+            window.location.reload();
+          });
+        }, error => {
+            alert('Ajout commentaire fail failed: ' + JSON.stringify(error.error)); // Affiche les détails de l'erreur
+        });
+      }
     }
   }
 

@@ -16,8 +16,9 @@ export class VideoService {
     .pipe(map(response => response.data));
   }
 
-  getVideoById(_id: string): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}/video/` + _id);
+  getVideoById(_id: number): Observable<any> {
+    return this.http.get<{data: any}>(`${environment.apiUrl}/video/` + _id)
+    .pipe(map(response => response.data));
   }
 
   getVideoByTitle(title: string): Observable<any> {

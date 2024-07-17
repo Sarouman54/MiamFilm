@@ -40,10 +40,11 @@
         <h1 class="text-black font-roboto text-center mt-8 mb-10 text-5xl">Ajout d'un commentaire</h1>
         <div class="flex">
             <div class="inline-block relative w-64 mb-5">
-                <label for="game" class="block mb-2 text-sm font-medium font-roboto text-black">Titre :</label>
+                <label for="title" class="block mb-2 text-sm font-medium font-roboto text-black">Titre :</label>
+                <input id="title" formControlName="title"
+                    class="block text-black appearance-none w-full font-roboto bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                 <input type="temps" id="temps"
                     class="font-roboto bg-[#fffdf9e5] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-
             </div>
             <div class="mb-5 ml-5">
                 <label for="note" class="block mb-2 text-sm font-medium font-roboto text-black">Note :</label>
@@ -82,7 +83,6 @@
         <div class="mb-5">
             <label for="critique" class="block mb-2 text-sm font-medium font-roboto text-black">Texte :</label>
             <div>
-                <label class="sr-only font-roboto" for="critique">Recette</label>
                 <textarea id="description" formControlName="description"
                     class="w-full rounded-lg border-gray-200 bg-[#fffdf9e5] font-roboto p-3 text-gray-900 text-sm"
                     placeholder="Le meilleur dessert du monde !!" rows="8"></textarea>

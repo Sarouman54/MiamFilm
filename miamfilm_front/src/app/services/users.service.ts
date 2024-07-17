@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { UserModel } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +11,14 @@ export class UsersService {
 
   constructor(private http: HttpClient) {}
 
-  getUsers(Token: string): Observable<any> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${Token}`);
-    return this.http.get<any>(`${environment.apiUrl}/users`, { headers });
+  getUsers(): Observable<UserModel[]> {
+    return this.http.get<{ data: UserModel[]}>(`${environment.apiUrl}/users`)
+    .pipe(map(response => response.data));
   }
 
-  getUserById(_id: string): Observable<any> {
-    return this.http.get<any>(`${environment.apiUrl}/users/` + _id);
+  getUserById(_id: string): Observable<UserModel[]> {
+    return this.http.get<{ data: UserModel[]}>(`${environment.apiUrl}/users/` + _id)
+    .pipe(map(response => response.data));
   }
 
   updateUserById(Token: string, _id: string, username: string, email: string): Observable<any> {

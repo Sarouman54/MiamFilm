@@ -27,8 +27,8 @@ exports.getCommentById = async (req, res, next) => {
 }
 
 exports.addComment = async (req, res, next) => {
-    console.log("ici 2 " + req.body.description)
-    const comment = await commentService.addComment(req.body.title, req.body.description, req.body.idVideo, req.body.idUser, req.body.idRecipe);
+    console.log("ici 2 " + req.body.id_user)
+    const comment = await commentService.addComment(req.body.title, req.body.description, req.body.id_video, req.body.id_user, req.body.id_recipe);
     if(comment) {
         res.status(201).json({id: comment.id});
     } else {

@@ -9,6 +9,7 @@ export class CommentModel {
     id_recipe?: number;
 
     constructor( id: number, title: string, description: Text, created_at: Date, updated_at: Date, id_video: number, id_user: number, id_recipe: number){
+
         this.id = id,
         this.title = title;
         this.description = description,

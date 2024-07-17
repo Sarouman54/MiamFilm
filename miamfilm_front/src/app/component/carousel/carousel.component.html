@@ -10,7 +10,7 @@
                     <p class="text-black font-roboto text-lg">{{video.average | number: '1.0-1'}}</p>
                 </div>
                 <div id="image" class="image-item-content pr-5">
-                    <a [routerLink]="['/video/video-item', video.id]">
+                    <a routerLink="/video/video-item/{{video.id}}">
                         <img src="https://image.tmdb.org/t/p/original/{{video.poster}}" alt="Image" class="carousel-image rounded-xl" />
                     </a>
                 </div>

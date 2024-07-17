@@ -3,6 +3,8 @@ import { CommentService } from '../../../services/comment.service';
 import { CommentModel } from '../../../models/comment.model';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
+import { UsersService } from '../../../services/users.service';
+import { UserModel } from '../../../models/user.model';
 
 @Component({
   selector: 'app-comment-list',
@@ -12,11 +14,21 @@ import { Router } from '@angular/router';
 export class CommentListComponent implements OnInit {
   value: number = 2;
   commentList: CommentModel [] = [];
+  users: UserModel [] = [];
 
-  constructor(private authService: AuthService, private router: Router, private commentService: CommentService){
+  constructor(private usersService: UsersService, private authService: AuthService, private router: Router, private commentService: CommentService){
   }
 
   ngOnInit(): void{
+    const token = localStorage.getItem('token');
+    this.usersService.getUsers().subscribe((hope: UserModel[]) => {
+      this.users = hope;
+      console.log(this.users)
+     },
+     error => {
+      console.error('Erreur lors de la récupération user :', error);
+      
+    });
     this.commentService.getAllComment().subscribe((response: CommentModel[]) => {
         this.commentList = response
       },

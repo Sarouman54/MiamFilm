@@ -26,8 +26,8 @@ exports.getCommentById = async (id) => {
 
 }
 
-exports.addComment = async (title, description, idUser, idVideo, idRecipe) => {
-
+exports.addComment = async (title, description, idVideo, idUser, idRecipe) => {
+    console.log('ici 3 '+ title, description, idVideo, idUser, idRecipe)
     try {
         var today = new Date(); // Utiliser toLocaleString('fr-FR') pou afficher au fuseau horaire français
         return await comment.create({
@@ -35,8 +35,8 @@ exports.addComment = async (title, description, idUser, idVideo, idRecipe) => {
             description: description,
             created_at: today,
             updated_at: today,
-            id_user: idUser,
             id_video: idVideo,
+            id_user: idUser,
             id_recipe: idRecipe,
         })
     } catch (error) {
